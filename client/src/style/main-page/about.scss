@@ -1,0 +1,86 @@
+.about {
+    height: 1263px;
+    padding-top: 25px;
+    padding-bottom: 100px;
+    background-color: rgb(20, 20, 20);
+    color: $color_white;
+    &__vg {
+        margin-top: 100px;
+        position: relative;
+        &-video {
+            width: 850px;
+            height: 210px;
+        }
+        &-title {
+            font-family: $font-royal-castle-regular;
+            top: 0;
+            right: 0;
+            position: absolute;
+            font-size: 96px;
+            line-height: 108px;
+            text-transform: uppercase;
+            text-align: end;
+        }
+    }
+    &__born {
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: 0.174fr 0.123fr 0.214fr 0.489fr;
+        height: 258px;
+        column-gap: 1px;
+        &-image {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        &-1 {
+            background-image: url("../../../public/images/about1.png");
+        }
+        &-2 {
+            background-image: url("../../../public/images/about2.png");
+        }
+        &-3 {
+            background-image: url("../../../public/images/about3.png");
+        }
+        &-4 {
+            display: flex;
+            flex-direction: column;
+            padding-left: calc(20px + (100vw - 1440px) / 9);
+            margin-left: 20px;
+            &_main {
+                font-family: $font-royal-castle-regular;
+                font-size: 18px;
+                line-height: 25px;
+                flex-grow: 1;
+            }
+            &_submain{
+                display: flex;
+                flex-direction: column;
+                row-gap: 26px;
+                font-size: 14px;
+                line-height: 140%;
+            }
+        }
+    }
+    &__expirience{
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: 0.35fr 0.2178fr 0.2178fr 0.2346fr;
+        height: 349px;
+        &-1{
+            display: flex;
+            flex-direction: column;
+            row-gap: 44px;
+            padding-right: 15px;
+        }
+        &-2{
+            background-image: url("../../../public/images/about4.png");
+        }
+        &-3{
+            background-image: url("../../../public/images/about5.png");
+        }
+        &-4{
+            background-image: url("../../../public/images/about6.png");
+        }
+    }
+}

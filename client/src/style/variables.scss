@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "RoyalCastle-Regular";
+    src: url("../../public/fonts/RoyalCastle-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ProximaNova-Regular";
+    src: url("../../public/fonts/ProximaNova-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ProximaNova-Bold";
+    src: url("../../public/fonts/ProximaNova-Bold.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+$font-royal-castle-regular: "RoyalCastle-Regular", sans-serif;
+$font-proxima-nova-regular: "ProximaNova-Regular", sans-serif;
+$font-proxima-nova-bold: "ProximaNova-Bold", sans-serif;
+
+$color_white: #ffffff;
+
+$color_purpure1: #9479FF;

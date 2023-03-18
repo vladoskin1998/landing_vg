@@ -1,0 +1,137 @@
+.header {
+    height: 810px;
+    color: $color_white;
+    position: relative;
+    overflow: hidden;
+    padding-top: 30px;
+
+    &__photo {
+        height: 824px;
+        width: 280px;
+        position: absolute;
+        top: 0;
+        right: 30px;
+        background-image: url("../../../public/images/for-header.png");
+    }
+    & .menu {
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: 14px;
+        text-transform: uppercase;
+        &__list {
+            display: flex;
+            width: max-content;
+            column-gap: calc(30px + (100vw - 1440px) / 7);
+            &-item {
+                padding: 0 10px;
+                cursor: pointer;
+                transition: color 0.3s ease;
+            }
+            &-item:hover {
+                color: $color_purpure1;
+            }
+        }
+    }
+    &__undertitle {
+        font-family: $font-royal-castle-regular;
+        margin-top: 105px;
+        margin-left: 405px;
+        font-weight: 400;
+        font-size: 34px;
+        line-height: 48px;
+    }
+    &__title {
+        font-family: $font-royal-castle-regular;
+        font-size: 148px;
+        line-height: 0.8;
+        text-transform: uppercase;
+    }
+    &__subtitle {
+        font-size: 112px;
+        line-height: 0.6;
+        text-transform: uppercase;
+        margin-bottom: 80px;
+    }
+    &__list {
+        margin-left: 20px;
+        font-size: 14px;
+        line-height: 140%;
+    }
+    &__button {
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        left: 50%;
+        top: 470px;
+        text-align: center;
+        text-transform: uppercase;
+        transform: translate(-50%, 0);
+        border:  1px solid $color_white;
+        border-radius: 50%;
+        font-size: 24px;
+        line-height: 29px;
+        padding-top: 18px;
+        z-index: 1;
+        & > div {
+            font-family: $font-proxima-nova-bold;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            width: 104%;
+            height: 104%;
+            z-index: -1;
+            opacity: 0;
+            visibility: hidden;
+            background-image: url("../../../public/images/elipslinear.png");
+            background-size: cover;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+           
+        }
+       
+        &:hover {
+            &::after {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+    }
+   
+    }
+}
+.header-helper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+.header-bg1.header-helper {
+    background-image: url("../../../public/images/animation1.png");
+    z-index: -2;
+}
+.header-bg2.header-helper {
+    background-image: url("../../../public/images/animation2.png");
+    opacity: 0;
+    z-index: -1;
+    animation: fade-in-out 10s ease-in-out infinite alternate;
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
