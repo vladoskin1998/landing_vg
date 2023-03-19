@@ -11,7 +11,7 @@ const textList = [
 
 export const About = () => {
     return (
-        <div className="about">
+        <div className="about about__born-image">
             <h4 className="title__links">About</h4>
             <div className="about__vg">
                 <video
