@@ -1,4 +1,5 @@
-import { WraperList } from "./WraperList";
+import { ReactElement } from "react";
+import { WraperList } from "./wraperList";
 
 const arr = [
     { src: "string", photoId: "1" },
@@ -7,7 +8,7 @@ const arr = [
     { src: "string", photoId: "4" },
 ]
 
-export const PhotoList = () => {
+export const PhotoList = ():ReactElement => {
     return <WraperList arr={arr} />
 }
 
