@@ -1,0 +1,32 @@
+@import 'media-slick.scss';
+
+.media__list {
+    .title__links {
+        cursor: pointer;
+        margin-bottom: 7px;
+        & div {
+            display: inline;
+            margin-right: 10px;
+        }
+        &:hover {
+            color: $color_purpure1;
+            transition: color 0.5s ease;
+            & svg{
+                fill: $color_purpure1;
+                & path{
+                    stroke: $color_purpure1;
+                    transition: stroke 0.5s ease;
+                }
+            }
+        }
+    }
+    &-subtitle{
+        display: flex;
+        column-gap: 10px;
+        font-size: 14px;
+        font-family: $font-royal-castle-regular;
+        text-transform: uppercase;
+        margin-bottom: 92px;
+    }
+   
+}

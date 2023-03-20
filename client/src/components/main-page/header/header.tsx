@@ -1,5 +1,5 @@
 import { Menu } from "./menu"
-import { Logo } from "../../svg/logo"
+import { Logo } from "../../../svg/logo"
 import { HeaderList } from "./headerList"
 
 const textList = [

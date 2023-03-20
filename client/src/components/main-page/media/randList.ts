@@ -1,9 +1,7 @@
-import { RandReturnFoo, ListMedia, MediaDataType} from '../../types/types-main'
-
-export const randList = (arr: ListMedia):RandReturnFoo => {
+export const randList = <T>(arr: T[]):Array<T[]> => {
     if (arr.length === 1) return [[...arr]]
 
-    let tempArr: RandReturnFoo = []
+    let tempArr: Array<T[]> = []
 
     for (let i = 0; i < arr.length; i = i + 3) {
         tempArr.push([
@@ -12,7 +10,7 @@ export const randList = (arr: ListMedia):RandReturnFoo => {
     }
 
     if (tempArr[tempArr.length - 1].length === 1) {
-        tempArr[tempArr.length - 1].unshift(tempArr[tempArr.length - 2].pop() as MediaDataType)
+        tempArr[tempArr.length - 1].unshift(tempArr[tempArr.length - 2].pop() as T)
     }
 
     return tempArr

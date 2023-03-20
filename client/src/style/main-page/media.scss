@@ -1,9 +1,9 @@
-.photo{
+.media{
     padding-top: 25px;
     padding-bottom: 100px;
     .title__links{
         color: $color_black1;
-        padding-bottom: 100px;
+        margin-bottom: 100px;
     }
     &__itemline{
         display: grid;
@@ -69,11 +69,11 @@
         
         }
         &:hover{
-            .photo__item-text{
+            .media__item-text{
                 transition: opacity 0.5s ease;
                 opacity: 0;
             }
-            .photo__item-bg{
+            .media__item-bg{
                 opacity: 1;
                 transition: opacity 1.3s ease;
             }
@@ -81,4 +81,11 @@
 
     }
    
+}
+
+.video{
+    background-image: url('../../../public/images/about_bg.jpg');
+    .title__links{
+        color: $color_white;
+    }
 }
