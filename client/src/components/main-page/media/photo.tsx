@@ -8,6 +8,8 @@ const arr = [
 
 ]
 
-export const Photo = () => {
+const Photo = () => {
     return <WraperMedia arr={arr} link={"photo-list"}/>
 }
+
+export default Photo

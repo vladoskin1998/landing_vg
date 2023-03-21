@@ -1,4 +1,4 @@
-export const Festival = () => {
+const Festival = () => {
     return <div className="festival about__born-image">
         <h4 className="title__links">Festival & TV</h4>
         <div className="festival__area">
@@ -23,3 +23,5 @@ export const Festival = () => {
         </div>
     </div>
 }
+
+export default Festival

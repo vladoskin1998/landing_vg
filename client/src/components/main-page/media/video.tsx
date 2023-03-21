@@ -8,6 +8,8 @@ const arr = [
 
 ]
 
-export const Video = () => {
+const Video = () => {
     return <WraperMedia arr={arr} link={"video-list"}/>
 }
+
+export default Video

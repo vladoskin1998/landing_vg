@@ -9,7 +9,7 @@ const textList = [
     "TV show “SuperIntuition” in Kiev, Ukraine.",
 ]
 
-export const About = () => {
+const About = () => {
     return (
         <div className="about about__born-image">
             <h4 className="title__links">About</h4>
@@ -67,3 +67,6 @@ export const About = () => {
         </div>
     )
 }
+
+
+export default About

@@ -47,12 +47,16 @@ img {
 }
 .content {
     & > * {
-        padding-left: calc((60px + (100vw - 1440px) / 7));
-        padding-right: calc((60px + (100vw - 1440px) / 7));
+        padding-left: 4vw;
+        padding-right: 4vw;
     }
 }
 .content > .festival {
     padding-right: 0;
+}
+
+.collaboration{
+    padding-left: 0;
 }
 
 h1,

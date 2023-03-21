@@ -12,7 +12,7 @@ const textList = [
     "TV show “SuperIntuition” in Kiev, Ukraine",
 ]
 
-export const Header = () => {
+const Header = () => {
     return (
         <div className="header">
             <div className="header-bg1 header-helper "></div>
@@ -32,3 +32,5 @@ export const Header = () => {
         </div>
     )
 }
+
+export default Header
