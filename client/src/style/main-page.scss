@@ -1,6 +1,8 @@
 @import 'main-page/header.scss';
 @import 'main-page/about.scss';
 @import 'main-page/media.scss';
+@import 'main-page/festival.scss';
+@import 'main-page/classes.scss';
 
 .title__links{
     font-family: $font-royal-castle-regular;
@@ -8,3 +10,5 @@
     line-height: 29px;
     text-transform: uppercase;
 }
+
+
