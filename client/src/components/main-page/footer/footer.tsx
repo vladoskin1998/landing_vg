@@ -1,8 +1,9 @@
 import { Insta, FB, TikTok } from '../../../svg/massenger'
 import { RotLine } from '../../../svg/rotLine'
 
+
 export const Footer = () => {
-    return <div className="footer">
+    return <div className="footer" id="Contacts">
         <h4 className="title__links">contacts</h4>
         <h4 className="title__links footer__vg">Join Veronika today</h4>
         <h5 className="footer__vg-subtitle">Getting more done together</h5>

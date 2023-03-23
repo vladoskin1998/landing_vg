@@ -9,7 +9,7 @@ const arr = [
 ]
 
 const Photo = () => {
-    return <WraperMedia arr={arr} link={"photo-list"}/>
+    return <div id="Photo"><WraperMedia arr={arr} link={"photo-list"}/></div>
 }
 
 export default Photo

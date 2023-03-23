@@ -1,7 +1,6 @@
 import { useRef, useEffect, useState } from "react"
-import React from "react";
 import { BottomLine } from "../../../svg/bottomLine";
-const Collaboration = () => {
+const Collaboration = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
 
     const ref = useRef<HTMLDivElement>(null)
     const [w, setW] = useState(500)
@@ -14,8 +13,7 @@ const Collaboration = () => {
         console.log("width", ref?.current?.offsetWidth);
     }, []);
 
-
-    return (<div className="collaboration">
+    return (<div className="collaboration" id="Collaboration">
         <div className="collaboration__area1 about__born-image">
             <h4 className="title__links">Collaboration</h4>
             <h3 className="collaboration__area1-subtitle">Open for</h3>
@@ -40,7 +38,7 @@ const Collaboration = () => {
                 <div className="collaboration__area1-photo-6 about__born-image"></div>
             </div>
             <h5 className="collaboration__area1-foottitle">For all questions of cooperation, please follow the
-                <button className="collaboration__area1-foottitle_contacts">Contacts <BottomLine /></button>
+                <button className="collaboration__area1-foottitle_contacts" onClick={scrollToBottom}>Contacts <BottomLine /></button>
             </h5>
 
         </div>

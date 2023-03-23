@@ -9,9 +9,11 @@ const textList = [
     "TV show “SuperIntuition” in Kiev, Ukraine.",
 ]
 
+
+
 const About = () => {
     return (
-        <div className="about about__born-image">
+        <div className="about about__born-image" id="About">
             <h4 className="title__links">About</h4>
             <div className="about__vg">
                 <video

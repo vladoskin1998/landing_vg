@@ -1,7 +1,7 @@
 .footer{
     padding-top: 25px;
     padding-bottom: 94px;
-    height: 385px;
+    height: max-content;
     color: $color_white;
     background-image: url("../../../public/images/about_bg.jpg");
     &__vg{

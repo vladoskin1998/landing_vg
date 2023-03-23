@@ -8,8 +8,10 @@ const textList = [
     "Inshi. New circus in Kiev, Ukraine in 2021.",
 ]
 
+
+
 const Classes = () => {
-    return <div className="classes">
+    return <div className="classes" id="Classes">
         <h4 className="title__links">Classes</h4>
         <div className="classes__area">
             <div className="classes__area-a1">

@@ -12,9 +12,11 @@ const textList = [
     "TV show “SuperIntuition” in Kiev, Ukraine",
 ]
 
-const Header = () => {
+const Header = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
+
+
     return (
-        <div className="header">
+        <div className="header ">
             <div className="header-bg1 header-helper "></div>
             <div className="header-bg2 header-helper "></div>
             <div className="logo">
@@ -25,9 +27,12 @@ const Header = () => {
             <h5 className="header__undertitle">Aerial Pole Artist</h5>
             <h3 className="header__title">Veronika</h3>
             <h3 className="header__subtitle">Goroshkova</h3>
-            <HeaderList textList={textList}/>
+            <HeaderList textList={textList} />
             <div className="header__photo"></div>
-            <button className="header__button">Contact <div >me</div></button>
+            <button className="header__button" onClick={scrollToBottom}>
+                Contact 
+                <div >me</div>
+            </button>
 
         </div>
     )

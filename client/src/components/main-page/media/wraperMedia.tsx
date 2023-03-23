@@ -24,7 +24,7 @@ export const WraperMedia = <T extends MediaDataType,>({
     const navigate = useNavigate()
     const title = makeTitle(link)
 
-    return <div className={`media ${title}`}>
+    return <div className={`media ${title}`} id={title[0].toUpperCase() + title.slice(1)}>
         <h4 className="title__links">{title}</h4>
         <div className="media__list">
             {randList(arr).map((arrItem: T[], index: number) => (

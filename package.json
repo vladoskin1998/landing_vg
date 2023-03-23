@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/react-scroll": "^1.8.6",
+    "react-scroll": "^1.8.9"
+  }
+}

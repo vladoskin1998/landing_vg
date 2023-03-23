@@ -1,5 +1,6 @@
 const Festival = () => {
-    return <div className="festival about__born-image">
+
+    return <div className="festival about__born-image" id="Festival & TV">
         <h4 className="title__links">Festival & TV</h4>
         <div className="festival__area">
             <div className="festival__area-text">
