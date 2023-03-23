@@ -46,7 +46,4 @@ export const WraperSlick = () => {
     </div>
 }
 
-// slickNext(): void;
-// slickPause(): void;
-// slickPlay(): void;
-// slickPrev(): void;
+export default WraperSlick

@@ -1,9 +1,3 @@
-// import { Header } from "./header/header"
-// import { About } from "./about/about"
-// import { Photo } from "./media/photo"
-// import { Video } from "./media/video"
-// import { Festival } from "./festival/festival"
-// import { Classes } from "./classes/classes"
 import React, { Suspense } from "react";
 import { Loader } from "../loader/loader";
 const Header = React.lazy(() => import("./header/header"));

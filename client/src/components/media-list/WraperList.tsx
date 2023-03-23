@@ -36,14 +36,14 @@ export const WraperList = <T extends { src: string },>({
 
     const toSlick = (
         photoId: string | number
-        ) => {
-        console.log("`/${location.pathname.split('/')[1]}/${setId}/${path.title}/1` -->",`/${location.pathname.split('/')[1]}/${setId}/${path.title}/1`);
-        
+    ) => {
+        console.log("`/${location.pathname.split('/')[1]}/${setId}/${path.title}/1` -->", `/${location.pathname.split('/')[1]}/${setId}/${path.title}/1`);
+
         navigate(`/${location.pathname.split('/')[1]}/${setId}/${path.title}/1`)
     }
 
     return <div className="media__list content">
- <Outlet />
+        <Outlet />
         <div className="media">
             <h4 className="title__links" onClick={exit}>
                 <div><LeftLine /></div>
@@ -60,9 +60,9 @@ export const WraperList = <T extends { src: string },>({
                         className={`media__itemline-${arrItem.length}-${index % 2 === 0 ? "p" : "n"
                             } media__itemline`}
                     >
-                        {arrItem.map((item,id) => (
+                        {arrItem.map((item, id) => (
                             <div style={{ backgroundImage: item.src }} className="media__item" >
-                                <div className="media__item-bg" onClick={() => toSlick("someid--->"+ id)}>
+                                <div className="media__item-bg" onClick={() => toSlick("someid--->" + id)}>
                                     <button className="media__item-bg_but"> {path.buttonTitle}</button>
                                 </div>
                             </div>
@@ -71,6 +71,8 @@ export const WraperList = <T extends { src: string },>({
                 ))}
             </div>
         </div>
-       
+
     </div >
 }
+
+export default WraperList

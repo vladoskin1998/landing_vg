@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { WraperList } from "./wraperList";
+import { WraperList } from "./WraperList";
 
 const arr = [
     { src: "string", photoId: "1" },
@@ -14,3 +14,4 @@ export const PhotoList = ():ReactElement => {
 
 
 
+export default PhotoList

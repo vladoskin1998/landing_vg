@@ -1,4 +1,4 @@
-import { WraperList } from "./wraperList";
+import { WraperList } from "./WraperList";
 
 const arr = [
     { src: "string", photoId: "1" },
@@ -11,3 +11,4 @@ export const VideoList = () => {
     return <WraperList arr={arr} />
 }
 
+export default VideoList
