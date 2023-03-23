@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { LeftLine } from "../../svg/leftLine";
 import { randList } from "../main-page/media/randList";
@@ -34,7 +34,9 @@ export const WraperList = <T extends { src: string },>({
         navigate(-1)
     }
 
-    const toSlick = (photoId: string | number) => {
+    const toSlick = (
+        photoId: string | number
+        ) => {
         console.log("`/${location.pathname.split('/')[1]}/${setId}/${path.title}/1` -->",`/${location.pathname.split('/')[1]}/${setId}/${path.title}/1`);
         
         navigate(`/${location.pathname.split('/')[1]}/${setId}/${path.title}/1`)
