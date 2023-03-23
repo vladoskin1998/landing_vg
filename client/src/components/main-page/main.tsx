@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { Loader } from "../loader/loader";
+import { Footer } from "./footer/footer";
 const Header = React.lazy(() => import("./header/header"));
 const About = React.lazy(() => import("./about/about"));
 const Photo = React.lazy(() => import("./media/photo"));
@@ -22,6 +23,7 @@ export const Main = () => {
                 <Festival />
                 <Classes />
                 <Collaboration />
+                <Footer />
             </Suspense>
         </div>
     )

@@ -15,10 +15,15 @@ const About = () => {
             <h4 className="title__links">About</h4>
             <div className="about__vg">
                 <video
-                    poster={"./images/about-video-poster.png"}
                     className="about__vg-video"
+                    preload="auto" 
+                    
+                    autoPlay 
+                    loop 
+                    playsInline 
+                    muted
                 >
-                    Your browser does not support the video tag.
+                  <source src="./Videos/about.mp4" type="video/mp4"/>
                 </video>
                 <div className="about__vg-title">
                     <h3>Veronika</h3>

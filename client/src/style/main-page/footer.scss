@@ -1,0 +1,50 @@
+.footer{
+    padding-top: 25px;
+    padding-bottom: 94px;
+    height: 385px;
+    color: $color_white;
+    background-image: url("../../../public/images/about_bg.jpg");
+    &__vg{
+        padding-top: 95px;
+        &-subtitle{
+           font-weight: 400;
+            font-size: 14px;
+            line-height: 140%;
+        }
+    }
+    &__massenger{
+        padding-top: 68px;
+        display: grid;
+        grid-template-columns: 0.2fr 0.3fr 0.2fr auto;
+        &-title{
+            font-family: $font-proxima-nova-bold;
+            font-size: 14px;
+            line-height: 140%;
+        }
+        &-subtitle{
+            font-size: 14px;
+            line-height: 140%;
+        }
+        &-svg_massenger{
+            padding-top: 7px;
+            display: flex;
+            column-gap: 16px;
+        }
+        &-dev{
+            padding-top: 16px;
+            text-align: end;
+            &:hover {
+                color: $color_purpure1;
+                transition: color 0.5s ease;
+                & svg{
+                    fill: $color_purpure1;
+                    & path{
+                        stroke: $color_purpure1;
+                        transition: stroke 0.5s ease;
+                    }
+                }
+            }
+        }
+   
+    }
+}

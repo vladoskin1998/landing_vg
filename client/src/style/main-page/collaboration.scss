@@ -1,65 +1,143 @@
-.collaboration{
+.collaboration {
     display: grid;
     grid-template-columns: 0.62fr auto;
-    height: 1492px;
-    .title__links{
+    height: min-content;
+    .title__links {
         margin-left: 0.5vw;
     }
-    &__area1{
+    &__area1 {
         position: relative;
         padding-left: 3.7vw;
         color: $color_white;
         padding-top: 26px;
-        background-image: url('../../../public/images/about_bg.jpg');
-        &-subtitle{
+        background-image: url("../../../public/images/about_bg.jpg");
+        &-subtitle {
+            text-transform: lowercase;
             margin-left: 0.5vw;
             padding-top: 90px;
             font-family: $font-royal-castle-regular;
             font-size: 40px;
             line-height: 0.5;
         }
-        &-interesting{
+        &-interesting {
             display: flex;
             justify-content: space-between;
             font-family: $font-royal-castle-regular;
-            font-size: calc((( 100vw * 180px) / 1440px));
-     
+            font-size: calc(((100vw * 180px) / 1440px));
+
             text-transform: uppercase;
-            & span{
-                color: $color_white;
+            & div:last-child {
+                position: relative;
             }
         }
-        &-bottitle{
+        &-bottitle {
             padding: 0;
             position: absolute;
-            right: 0;
-            top: 390px;
-            font-size: calc((( 100vw * 40px) / 1440px));
+            right: 3px;
+            bottom: 0;
+            width: max-content;
+            font-size: calc(((100vw * 40px) / 1440px));
         }
+        &-photo {
+            display: grid;
+            padding-top: 60px;
+            row-gap: 1px;
+            columns: 1px;
+            padding-right: 10px;
+            grid-template-rows: 260px 279px 220px;
+            grid-template-areas:
+                "photo-1 photo-1 photo-1 photo-2 photo-2"
+                "photo-3 photo-3 photo-4 photo-4 photo-4"
+                "photo-3 photo-3 photo-5 photo-5 photo-6";
+            & div {
+                background-color: black;
+            }
+            &-1 {
+                grid-area: photo-1;
+                background-image: url("../../../public/images/colaboration1.png");
+            }
+
+            &-2 {
+                grid-area: photo-2;
+                background-image: url("../../../public/images/colaboration2.png");
+            }
+
+            &-3 {
+                grid-area: photo-3;
+                background-image: url("../../../public/images/colaboration3.png");
+            }
+
+            &-4 {
+                grid-area: photo-4;
+                background-image: url("../../../public/images/colaboration4.png");
+            }
+
+            &-5 {
+                grid-area: photo-5;
+                background-image: url("../../../public/images/colaboration5.png");
+            }
+            &-6 {
+                grid-area: photo-6;
+                background-image: url("../../../public/images/colaboration6.png");
+            }
+        }
+        &-foottitle{
+            padding-top: 60px;
+            font-size: 14px;
+            line-height: 140%;
+            color: $color_white;
+            &_contacts{
+                padding-left: 3px;
+                font-family: $font-proxima-nova-bold;
+                &:hover {
+                    color: $color_purpure1;
+                    transition: color 0.5s ease;
+                    & svg{
+                        fill: $color_purpure1;
+                        & path{
+                            stroke: $color_purpure1;
+                            transition: stroke 0.5s ease;
+                        }
+                    }
+                }
+            }
+        }
+  
     }
-    &__area2{
+    &__area2 {
         color: $color_black1;
         background-color: $color_white;
         position: relative;
-        &-interesting{
+        &-interesting {
             display: flex;
-            top: 165px;
-            left: -14px;
-            position: absolute;
+            padding-top: 165px;
             justify-content: space-between;
             font-family: $font-royal-castle-regular;
-            font-size: calc((( 100vw * 185px) / 1440px));
+            font-size: calc(((100vw * 182px) / 1440px));
             text-transform: uppercase;
-            & span{
-                color: $color_black1;
+            & div:first-child {
+                position: relative;
             }
         }
-        &-bottitle{
-            font-size: calc((( 100vw * 40px) / 1440px));
+        &-bottitle {
+            font-size: calc(((100vw * 40px) / 1440px));
             padding: 0;
             position: absolute;
-            left: 0;
-            top: 390px;
+            left: 2px;
+            bottom: 1px;
+            width: max-content;
+        }
+        &-videotitle{
+            padding-top: 60px;
+            padding-left: 10px;
+            font-size: 14px;
+            color: $color_black2;
+        }
+        &-video{
+            display: grid;
+            grid-template-rows: 448px 445px;
+            padding-top: 66px;
+         
         }
     }
 }
