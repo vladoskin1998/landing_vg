@@ -1,4 +1,6 @@
+import { lazy } from "react"
 import { HeaderList } from "../header/headerList"
+import { AboutVideo } from "./about-video"
 
 const textList = [
     "Performing Artist in Mad Apple by Cirque Du Soleil in Las Vegas.",
@@ -9,24 +11,12 @@ const textList = [
     "TV show “SuperIntuition” in Kiev, Ukraine.",
 ]
 
-
-
 const About = () => {
     return (
         <div className="about about__born-image" id="About">
             <h4 className="title__links">About</h4>
             <div className="about__vg">
-                <video
-                    className="about__vg-video"
-                    preload="auto" 
-                    
-                    autoPlay 
-                    loop 
-                    playsInline 
-                    muted
-                >
-                  <source src="./Videos/about.mp4" type="video/mp4"/>
-                </video>
+                <AboutVideo />
                 <div className="about__vg-title">
                     <h3>Veronika</h3>
                     <h3>Goroshkova</h3>

@@ -1,39 +1,65 @@
 import { Menu } from "./menu"
 import { Logo } from "../../../svg/logo"
 import { HeaderList } from "./headerList"
-
-const textList = [
-    "Participant in [Raw Art], a post-circus project created by a Ukrainian",
-    "Performing Artist in Mad Apple by Cirque Du Soleil in Las Vegas.",
-    "Participant Festival Mondial du Cirque de Demain in Paris in 2020.",
-    "La Merce-Mac Festival in Barcelona, Spain in 2020.",
-    "Inshi. New circus in Kiev, Ukraine in 2021.",
-    "Flic Flac-The Modern Art of Circus in Dortmund, Germany in 2021-2022.",
-    "TV show “SuperIntuition” in Kiev, Ukraine",
-]
+import { SlickHeader } from "./slickHeader"
+import { useContext, useState } from "react"
+import { AppContext } from "../../../context/context"
+import { AboutVideo } from "../about/about-video"
+import { Burger } from '../../../svg/burger'
+import { MenuBurger } from "./menuBurger"
+import { HeaderButton } from "./headerButton"
+import { HEADER_TEXT as textList } from "../../../utils/const"
 
 const Header = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
 
+    const { device } = useContext(AppContext)
+    const [open, setOpen] = useState(false)
 
+    console.log(open);
+
+
+    console.log("device------>", device);
     return (
-        <div className="header ">
+        <div className="header">
             <div className="header-bg1 header-helper "></div>
             <div className="header-bg2 header-helper "></div>
             <div className="logo">
                 <Logo />
             </div>
-            <div className="animation"></div>
-            <Menu />
-            <h5 className="header__undertitle">Aerial Pole Artist</h5>
-            <h3 className="header__title">Veronika</h3>
-            <h3 className="header__subtitle">Goroshkova</h3>
-            <HeaderList textList={textList} />
-            <div className="header__photo"></div>
-            <button className="header__button" onClick={scrollToBottom}>
-                Contact 
-                <div >me</div>
-            </button>
+            <div className="animation" />
+            {
+                device === "pc"
+                    ? <Menu />
+                    : <MenuBurger close={() => setOpen(false)} open={open}>
+                        <Menu />
+                    </MenuBurger>
+            }
+            <h5 className="header__undertitle header__padding">Aerial Pole Artist</h5>
+            <h3 className="header__title header__padding">Veronika</h3>
+            <h3 className="header__subtitle header__padding">Goroshkova</h3>
+            {
+                device === "pc"
+                    ? <>
+                        <HeaderList textList={textList} />
+                        <div className="header__photo" />
+                        <HeaderButton scrollToBottom={scrollToBottom} />
+                    </>
+                    :
+                    <>
+                        <SlickHeader>
+                            <HeaderList textList={textList} />
+                        </SlickHeader >
+                        <AboutVideo />
+                        <div className="header__button-wrap">
+                            <HeaderButton scrollToBottom={scrollToBottom} />
+                        </div>
+                    </>
+            }
 
+            <button className="header__burger" onClick={() => setOpen(true)}>
+                <Logo />
+                <Burger />
+            </button>
         </div>
     )
 }

@@ -1,16 +1,7 @@
 import { useId } from "react"
 import { Link, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { useRef } from "react"
-const menuList = [
-    "Home",
-    "About",
-    "Photo",
-    "Video",
-    "Festival & TV",
-    "Classes",
-    "Collaboration",
-    "Contacts",
-]
+import { MENU_LIST as menuList } from "../../../utils/const"
 
 export const Menu = () => {
     const id = useId()

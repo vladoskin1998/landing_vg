@@ -12,7 +12,6 @@
         padding-top: 26px;
         background-image: url("../../../public/images/about_bg.jpg");
         &-subtitle {
-            text-transform: lowercase;
             margin-left: 0.5vw;
             padding-top: 90px;
             font-family: $font-royal-castle-regular;
@@ -37,9 +36,11 @@
             bottom: 0;
             width: max-content;
             font-size: calc(((100vw * 40px) / 1440px));
+            text-transform: lowercase;
         }
         &-photo {
             display: grid;
+            margin-left: 0.5vw;
             padding-top: 60px;
             row-gap: 1px;
             columns: 1px;
@@ -126,6 +127,7 @@
             left: 2px;
             bottom: 1px;
             width: max-content;
+            text-transform: lowercase;
         }
         &-videotitle{
             padding-top: 60px;

@@ -1,29 +1,35 @@
 import { Main } from "./components/main-page/main"
 import { Route, Routes } from 'react-router-dom';
 import { NoMatch } from "./components/no-match/noMatch";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Loader } from "./components/loader/loader";
-
+import { ContextProvider } from './context/context'
 const PhotoList = React.lazy(() => import('./components/media-list/PhotoList'));
 const VideoList = React.lazy(() => import('./components/media-list/VideoList'));
 const WraperSlick = React.lazy(() => import("./components/media-list/WraperSlick"));
 
 function App() {
+
+    const refApp = useRef<HTMLDivElement>(null)
+
     return (
-        <div className="App">
+
+        <div className="App" ref={refApp}>
             <Suspense fallback={<Loader />}>
-                <Routes>
-                    <Route path="/" element={<Main />} />
-                    <Route path="/photo-list/:setId">
-                        <Route path="photo/:current" element={<WraperSlick />} />
-                        <Route path="" element={<PhotoList />} />
-                    </Route>
-                    <Route path="/video-list/:setId">
-                        <Route path="video/:current" element={<WraperSlick />} />
-                        <Route path="" element={<VideoList />} />
-                    </Route>
-                    <Route path="*" element={<NoMatch />} />
-                </Routes>
+                <ContextProvider refApp={refApp}>
+                    <Routes>
+                        <Route path="/" element={<Main />} />
+                        <Route path="/photo-list/:setId">
+                            <Route path="photo/:current" element={<WraperSlick />} />
+                            <Route path="" element={<PhotoList />} />
+                        </Route>
+                        <Route path="/video-list/:setId">
+                            <Route path="video/:current" element={<WraperSlick />} />
+                            <Route path="" element={<VideoList />} />
+                        </Route>
+                        <Route path="*" element={<NoMatch />} />
+                    </Routes>
+                </ContextProvider>
             </Suspense>
         </div>
     )
