@@ -1,17 +1,13 @@
-import { lazy } from "react"
 import { HeaderList } from "../header/headerList"
 import { AboutVideo } from "./about-video"
-
-const textList = [
-    "Performing Artist in Mad Apple by Cirque Du Soleil in Las Vegas.",
-    "Participant Festival Mondial du Cirque de Demain in Paris in 2020.",
-    "La Merce-Mac Festival in Barcelona, Spain in 2020.",
-    "Inshi. New circus in Kiev, Ukraine in 2021.",
-    "Flic Flac-The Modern Art of Circus in Dortmund, Germany in 2021-2022.",
-    "TV show “SuperIntuition” in Kiev, Ukraine.",
-]
+import { useContext } from "react"
+import { AppContext } from "../../../context/context"
+import { ABOUT_TEXT as textList} from "../../../utils/const"
 
 const About = () => {
+
+    const { device } = useContext(AppContext)
+
     return (
         <div className="about about__born-image" id="About">
             <h4 className="title__links">About</h4>
@@ -26,6 +22,9 @@ const About = () => {
                 <div className="about__born-1 about__born-image"></div>
                 <div className="about__born-2 about__born-image"></div>
                 <div className="about__born-3 about__born-image"></div>
+                <div className="about__vg-title">  
+                    <h3>Veronika Goroshkova</h3>
+                </div>
                 <div className="about__born-4 about__born-image">
                     <div className="about__born-4_main">
                         <h4>05.05.1999</h4>

@@ -10,7 +10,7 @@ const WraperSlick = React.lazy(() => import("./components/media-list/WraperSlick
 
 function App() {
 
-    const refApp = useRef<HTMLDivElement>(null)
+   const refApp = useRef<HTMLDivElement>(null)
 
     return (
 

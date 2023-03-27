@@ -1,14 +1,16 @@
 import React, { createContext, useState, useRef, useEffect, ReactNode, RefObject } from 'react';
 
+type DeviceType = "pc" | "mobile" | "tablet"
 
-
-const AppContext = createContext({
+const AppContext = createContext<{
+    device: DeviceType,
+}>({
     device: "pc"
 });
 
 const ContextProvider = ({ children, refApp }: { children: ReactNode, refApp: RefObject<HTMLDivElement> }) => {
 
-    const [device, setDevice] = useState<"pc" | "mobile" | "tablet">("pc")
+    const [device, setDevice] = useState<DeviceType>("pc")
 
     useEffect(() => {
         if (refApp?.current?.offsetWidth !== undefined) {

@@ -21,7 +21,7 @@ body {
     font-family: $font-proxima-nova-regular;
     line-height: 1.1;
     color: #333;
-     overflow-x: hidden;
+ 
 }
 
 /* Обнуляющие стили для ссылок */
@@ -47,20 +47,7 @@ img {
     max-width: 100%;
     height: auto;
 }
-.content {
-    & > * {
-        padding-left: 4vw;
-        padding-right: 4vw;
-    }
-}
 
-.content > .festival {
-    padding-right: 0;
-}
-
-.collaboration{
-    padding-left: 0;
-}
 
 h1,
 h2,
@@ -81,4 +68,28 @@ button {
     color: inherit;
     background-color: transparent;
     cursor: pointer;
+}
+
+.content {
+    & > * {
+        padding: 25px 60px 100px 60px;
+    }
+    .festival {
+        padding-right: 0;
+    }
+    
+    .collaboration{
+        padding: 0px 60px 0px 0px;
+    }
+}
+
+
+
+@media only screen and (max-width: 950px) {
+    .content {
+        & > * {
+            padding: 30px 30px 80px 30px;
+        }
+    }
+    
 }

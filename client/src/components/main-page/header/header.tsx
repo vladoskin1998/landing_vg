@@ -14,11 +14,7 @@ const Header = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
 
     const { device } = useContext(AppContext)
     const [open, setOpen] = useState(false)
-
-    console.log(open);
-
-
-    console.log("device------>", device);
+    
     return (
         <div className="header">
             <div className="header-bg1 header-helper "></div>

@@ -1,5 +1,6 @@
 .collaboration {
     display: grid;
+    width: 100%;
     grid-template-columns: 0.62fr auto;
     height: min-content;
     .title__links {
@@ -82,20 +83,20 @@
                 background-image: url("../../../public/images/colaboration6.png");
             }
         }
-        &-foottitle{
+        &-foottitle {
             padding-top: 60px;
             font-size: 14px;
             line-height: 140%;
             color: $color_white;
-            &_contacts{
+            &_contacts {
                 padding-left: 3px;
                 font-family: $font-proxima-nova-bold;
                 &:hover {
                     color: $color_purpure1;
                     transition: color 0.5s ease;
-                    & svg{
+                    & svg {
                         fill: $color_purpure1;
-                        & path{
+                        & path {
                             stroke: $color_purpure1;
                             transition: stroke 0.5s ease;
                         }
@@ -103,12 +104,12 @@
                 }
             }
         }
-  
     }
     &__area2 {
         color: $color_black1;
         background-color: $color_white;
         position: relative;
+        padding-bottom: 100px;
         &-interesting {
             display: flex;
             padding-top: 165px;
@@ -129,17 +130,38 @@
             width: max-content;
             text-transform: lowercase;
         }
-        &-videotitle{
+        &-videotitle {
             padding-top: 60px;
             padding-left: 10px;
             font-size: 14px;
             color: $color_black2;
         }
-        &-video{
+        &-video {
             display: grid;
+            grid-template-columns: repeat(7, 1fr);
             grid-template-rows: 448px 445px;
+            grid-template-areas:
+                "v-1 v-1 v-1 v-1 v-2 v-2 v-2"
+                "v-3 v-3 v-3 v-4 v-4 v-4 v-4";
             padding-top: 66px;
-         
+            &-1 {
+                grid-area: v-1;
+            }
+            &-2 {
+                grid-area: v-2;
+            }
+            &-3 {
+                grid-area: v-3;
+            }
+            &-4 {
+                grid-area: v-4;
+            }
+            video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
         }
     }
 }

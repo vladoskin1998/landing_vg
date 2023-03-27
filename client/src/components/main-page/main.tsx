@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useState,lazy,useEffect } from "react";
+import React, { Suspense, useRef, useState, lazy, useEffect } from "react";
 import { Loader } from "../loader/loader";
 import { Footer } from "./footer/footer";
 import { animateScroll as scroll, } from 'react-scroll'
@@ -17,7 +17,7 @@ export const Main = () => {
     const mainRef = useRef<HTMLDivElement>(null)
 
     const [scrollPosition, setScrollPosition] = useState<number>(0);
-  
+
     const handleScroll = () => {
         setScrollPosition(window.scrollY);
     };
@@ -41,7 +41,7 @@ export const Main = () => {
                 <Classes />
                 <Collaboration scrollToBottom={scrollToBottom} />
                 <Footer />
-                <button onClick={scrollToTop} className="main__scroll" style={{visibility: scrollPosition > 800 ? "visible": "hidden" }} >
+                <button onClick={scrollToTop} className="main__scroll" style={{ visibility: scrollPosition > 800 ? "visible" : "hidden" }} >
                     <ScrollButton />
                 </button>
             </Suspense>

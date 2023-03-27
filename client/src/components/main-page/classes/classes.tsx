@@ -14,32 +14,21 @@ const Classes = () => {
     return <div className="classes" id="Classes">
         <h4 className="title__links">Classes</h4>
         <div className="classes__area">
-            <div className="classes__area-a1">
-                <div>
-                    <h4 className="title__links">Coaching Experience</h4>
-                    <HeaderList textList={textList} />
-                </div>
-                <div className="classes__area-a1_p1 about__born-image"></div>
-                <div className="classes__area-a1_p2 about__born-image"></div>
+            <div className="classes__area-list">
+                <h4 className="title__links">Coaching Experience</h4>
+                <HeaderList textList={textList} />
             </div>
-            <div className="classes__area-a2">
-                <div className="classes__area-a1_p1 about__born-image"></div>
-                <div></div>
-                <div className="classes__area-a2_p2 about__born-image"></div>
-                <div className="classes__area-a2_p3 about__born-image"></div>
-                <div className="classes__area-a2_p4 about__born-image"></div>
-            </div>
-            <div className="classes__area-a3">
-                <div className="classes__area-a3_p1 about__born-image"></div>
-                <div></div>
-                <div className="classes__area-a3_p2 about__born-image"></div>
-                <div className="classes__area-a3_p3 about__born-image"></div>
-                <div></div>
-            </div>
-            <div className="classes__area-a4">
-                <div className="classes__area-a4_p1 about__born-image"></div>
-                <div></div>
-            </div>
+            <div className="classes__area_p1 about__born-image"></div>
+            <div className="classes__area_p2 about__born-image"></div>
+            <div className="classes__area_p3 about__born-image"></div>
+            <div className="classes__area_p4 about__born-image"></div>
+            <div className="classes__area_p5 about__born-image"></div>
+            <div className="classes__area_p6 about__born-image"></div>
+            <div className="classes__area_p7 about__born-image"></div>
+            <div className="classes__area_p8 about__born-image"></div>
+            <div className="classes__area_p9 about__born-image"></div>
+            <div className="classes__area_p10 about__born-image"></div>
+            <div className="classes__area_empty"></div>
         </div>
     </div>
 }

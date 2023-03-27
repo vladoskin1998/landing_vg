@@ -1,67 +1,89 @@
 .classes {
-    padding-top: 26px;
-    padding-bottom: 100px;
-    background-image: url('../../../public/images/about_bg.jpg');
+    background-image: url("../../../public/images/about_bg.jpg");
     color: $color_white;
     &__area {
         display: grid;
-        grid-template-columns: 1fr;
-        row-gap: 1px;
         grid-template-rows: repeat(4, 323px);
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        grid-template-areas:
+            "t-1 t-1 t-1 t-1 t-1 t-1 p-1 p-1 p-1 p-1 p-2 p-2 p-2"
+            "p-3 p-3 . p-4 p-4 p-5 p-5 p-5 p-5 p-6 p-6 p-6 p-6"
+            "p-7 p-7 . p-8 p-8 p-8 p-8 p-9 p-9 p-9 p-9  . ."
+            "p-10 p-10 . . . . . . . . . . .";
+        row-gap: 1px;
         margin-top: 100px;
-        &-a1{
-            display: grid;
-            grid-template-columns: 0.44fr 0.37fr 0.2fr;
-            column-gap: 1px;
-            .title__links{
-                padding-bottom: 40px;
-            }
-            &_p1{
-                background-image: url("../../../public/images/classes1.png");
-            }
-            &_p2{
-                background-image: url("../../../public/images/classes2.png");
-            }
-          
+        .title__links{
+            padding-bottom: 44px;
         }
-        &-a2{
-            display: grid;
-            grid-template-columns: 0.18fr 0.05fr 0.14fr 0.3fr 0.3fr;
-            column-gap: 1px;
-            &_p1{
-                background-image: url("../../../public/images/classes3.png");
-            }
-            &_p2{
-                background-image: url("../../../public/images/classes4.png");
-            }
-            &_p3{
-                background-image: url("../../../public/images/classes5.png");
-            }
-            &_p4{
-                background-image: url("../../../public/images/classes6.png");
-            }
+        &-list{
+            grid-area: t-1;
         }
-        &-a3{
-            display: grid;
-            grid-template-columns: 0.18fr 0.05fr 0.3fr 0.3fr 0.14fr;
-            column-gap: 1px;
-            &_p1{
-                background-image: url("../../../public/images/classes7.png");
-            }
-            &_p2{
-                background-image: url("../../../public/images/classes8.png");
-            }
-            &_p3{
-                background-image: url("../../../public/images/classes9.png");
-            }
+        &_p1 {
+            grid-area: p-1;
+            background-image: url("../../../public/images/classes1.png");
         }
-        &-a4{
-            display: grid;
-            grid-template-columns: 0.18fr 0.79fr;
-            column-gap: 1px;
-            &_p1{
-                background-image: url("../../../public/images/classes10.png");
-            }
+        &_p2 {
+            grid-area: p-2;
+            background-image: url("../../../public/images/classes2.png");
+        }
+        &_p3 {
+            grid-area: p-3;
+            background-image: url("../../../public/images/classes3.png");
+        }
+        &_p4 {
+            grid-area: p-4;
+            background-image: url("../../../public/images/classes4.png");
+        }
+        &_p5 {
+            grid-area: p-5;
+            background-image: url("../../../public/images/classes5.png");
+        }
+        &_p6 {
+            grid-area: p-6;
+            background-image: url("../../../public/images/classes6.png");
+        }
+        &_p7 {
+            grid-area: p-7;
+            background-image: url("../../../public/images/classes7.png");
+        }
+        &_p8 {
+            grid-area: p-8;
+            background-image: url("../../../public/images/classes8.png");
+        }
+        &_p9 {
+            grid-area: p-9;
+            background-image: url("../../../public/images/classes9.png");
+        }
+        &_p10 {
+            grid-area: p-10;
+            background-image: url("../../../public/images/classes10.png");
         }
     }
+}
+
+
+@media only screen and (max-width: 950px) {
+    .classes__area{
+        grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(17, 95px);
+        grid-template-areas:
+        "t-1 t-1 t-1"
+        "t-1 t-1 t-1"
+        "t-1 t-1 t-1"
+        "p-1 p-1 p-3"
+        "p-1 p-1 p-3"
+        "p-1 p-1 p-3"
+        "p-2 p-7 p-3"
+        "p-2 p-7 p-4"
+        "p-2 p-7 p-4"
+        "p-2 p-6 p-6"
+        "p-10 p-6 p-6"
+        "p-10 p-6 p-6"
+        "p-10 p-6 p-6"
+        "p-5 p-5 p-8"
+        "p-5 p-5 p-8"
+        "p-5 p-5 p-9"
+        "p-5 p-5 p-9"
+    }
+
 }
