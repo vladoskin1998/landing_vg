@@ -88,6 +88,7 @@
 @media only screen and (max-width: 950px) {
     .header {
         .about__vg-video {
+            display: block;
             width: 100vw;
             height: auto;
             margin-top: 100px;
@@ -151,6 +152,58 @@
             &-4 {
                 grid-row: 1;
                 grid-column: 3;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .about__born {
+        margin-top: 80px;
+    }
+    .header {
+        .about__vg-video {
+            display: block;
+            width: 100vw;
+            height: auto;
+            margin-top: 40px;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .about {
+        &__born-3 {
+            min-height: 270px;
+        }
+        &__born {
+            margin-top: 60px;
+        }
+        &__born-4_main {
+            font-size: 16px;
+        }
+        &__born-4_submain {
+            font-size: 12px;
+            row-gap: 20px;
+        }
+        &__expirience {
+            margin-top: 40px;
+            grid-template-rows: 350px auto;
+            grid-template-columns: repeat(2, 1fr);
+            &-1 {
+                margin-top: 40px;
+                row-gap: 20px;
+            }
+            &-2 {
+                display: none;
+            }
+            &-3 {
+                grid-row: 1;
+                grid-column: 2;
+            }
+            &-4 {
+                grid-row: 1;
+                grid-column: 1;
             }
         }
     }

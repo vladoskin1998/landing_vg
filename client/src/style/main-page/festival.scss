@@ -1,10 +1,17 @@
 .festival {
-    height: 977px;
+    height: min-content;
     background-image: url("../../../public//images/about1.png");
     padding-top: 26px;
     padding-bottom: 100px;
     color: $color_white;
+    &__photo {
+        display: none;
+    }
+    &__bg-list{
+        display: none;
+    }
     &__area {
+        position: relative;
         display: flex;
         flex-direction: column;
         width: 600px;
@@ -12,45 +19,106 @@
             padding: 95px 0 80px 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             font-size: 14px;
             line-height: 140%;
-            height: 314px;
+            row-gap: 20px;
         }
-        &-listt {
+        &-list {
             display: grid;
-            grid-template-columns: 164px 167px 272px;
-            height: 258px;
+            grid-template-columns: 164px 90px 90px 90px 164px;
+            grid-template-areas:
+                "p-1 p-2 p-2 p-3 p-3"
+                "p-4 p-4 p-5 p-5 p-6";
+            grid-template-rows: 258px 258px;
             &_1 {
-                background-image: url('../../../public//images/festival1.png');
+                grid-area: p-1;
+                background-image: url("../../../public//images/festival1.png");
             }
             &_2 {
-                background-image: url('../../../public//images/festival2.png');
+                grid-area: p-2;
+                background-image: url("../../../public//images/festival2.png");
             }
             &_3 {
-                background-image: url('../../../public//images/festival3.png');
+                grid-area: p-3;
+                background-image: url("../../../public//images/festival3.png");
             }
-        }
-        &-listb {
-            height: 258px;
-            display: grid;
-            grid-template-columns: 272px 164px 167px;
-            &_1 {
-                background-image: url('../../../public//images/festival4.png');
+            &_4 {
+                grid-area: p-4;
+                background-image: url("../../../public//images/festival4.png");
             }
-            &_2 {
-                background-image: url('../../../public//images/festival5.png');
+            &_5 {
+                grid-area: p-5;
+                background-image: url("../../../public//images/festival5.png");
             }
-            &_3 {
-                background-image: url('../../../public//images/festival6.png');
+            &_6 {
+                grid-area: p-6;
+                background-image: url("../../../public//images/festival6.png");
             }
         }
     }
 }
 
-
 @media only screen and (max-width: 950px) {
-    .festival{
-        display: none;
+    .festival {
+        min-height: 572px;
+        background-color: $color_black1;
+        &__area-list {
+            position: absolute;
+            top: 392px;
+            left: -30px;
+            width: 100vw;
+            padding: 0 30px;
+            grid-template-columns: 33.3% 33.3% 33.3%;
+            grid-template-rows: 120px 261px 20px 100px 261px;
+            grid-template-areas:
+                "p-1 . ."
+                "p-1 p-2 p-4"
+                "p-1 p-2 p-5 "
+                "p-6 p-2 p-5"
+                "p-6 p-3 p-5";
+        }
+        &__bg-list{
+            display: block;
+            width: 100vw;
+            height: 700px;
+            background-color: $color_black1;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .festival {
+        background-image: none;
+        height: auto;
+        &__bg-list{
+            display: none;
+        }
+        &__photo {
+            display: block;
+            height: 650px;
+            background-image: url("../../../public//images/about1.png");
+            background-position-x: -450px;
+            margin-bottom: 730px;
+        }
+        &__area {
+            &-text {
+                padding: 55px 0;
+            }
+            &-list {
+                grid-template-columns: 50% 50%;
+                grid-template-rows: 277px 90px 182px 20px 180px 50px;
+                top: 840px;
+                left: 10px;
+                width: calc(100vw - 20px);
+                padding: 0;
+                grid-template-areas:
+                    "p-1 p-2"
+                    "p-1 p-3"
+                    "p-4 p-3"
+                    "p-5 p-3"
+                    "p-5 p-6"
+                    ". p-6";
+            }
+        }
     }
 }

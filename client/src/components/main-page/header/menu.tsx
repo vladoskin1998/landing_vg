@@ -1,10 +1,10 @@
-import { useId } from "react"
-import { Link, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
+import { animateScroll as scroll,  scroller } from 'react-scroll'
 import { useRef } from "react"
 import { MENU_LIST as menuList } from "../../../utils/const"
 
 export const Menu = () => {
-    const id = useId()
+
     const scrollerRef = useRef(scroller)
     const options = {
         duration: 800,
@@ -16,8 +16,8 @@ export const Menu = () => {
     return (
         <div className="menu">
             <div className="menu__list">
-                {menuList.map((i) => (
-                    <div className="menu__list-item" key={id} onClick={() => scrollTo(i)}>
+                {menuList.map((i,index) => (
+                    <div className="menu__list-item" key={"menu__list-item"+index} onClick={() => scrollTo(i)}>
                         {i}
                     </div>
                 ))}

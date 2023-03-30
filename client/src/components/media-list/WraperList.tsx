@@ -5,6 +5,8 @@ import { randList } from "../main-page/media/randList";
 import { useLocation } from 'react-router-dom';
 import { RightChevron } from "../../svg/rightChevron";
 import { Outlet } from "react-router-dom";
+import { useContext } from "react"
+import { AppContext } from "../../context/context"
 
 const title = (key: string): { title: string, buttonTitle: ReactElement | string } => {
     switch (key) {
@@ -28,7 +30,7 @@ export const WraperList = <T extends { src: string },>({
     const navigate = useNavigate()
     const location = useLocation();
     const path = title(location.pathname.split('/')[1]);
-
+    const { device } = useContext(AppContext)
 
     const exit = () => {
         navigate(-1)
@@ -55,7 +57,7 @@ export const WraperList = <T extends { src: string },>({
                 <h5>{setId}</h5>
             </div>
             <div className="media__list">
-                {randList(arr).map((arrItem: T[], index: number) => (
+                {randList(arr, device).map((arrItem: T[], index: number) => (
                     <div
                         className={`media__itemline-${arrItem.length}-${index % 2 === 0 ? "p" : "n"
                             } media__itemline`}

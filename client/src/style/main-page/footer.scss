@@ -1,50 +1,88 @@
-.footer{
+.footer {
     padding-top: 25px;
     padding-bottom: 94px;
     height: max-content;
     color: $color_white;
     background-image: url("../../../public/images/about_bg.jpg");
-    &__vg{
+    &__vg {
         padding-top: 95px;
-        &-subtitle{
-           font-weight: 400;
+        &-subtitle {
+            font-weight: 400;
             font-size: 14px;
             line-height: 140%;
         }
     }
-    &__massenger{
+    &__massenger {
         padding-top: 68px;
         display: grid;
         grid-template-columns: 0.2fr 0.3fr 0.2fr auto;
-        &-title{
+        grid-template-areas: "b-1 b-2 b-3 b-4";
+        div:nth-child(1) {
+            grid-area: b-1;
+        }
+        div:nth-child(2) {
+            grid-area: b-2;
+        }
+        div:nth-child(3) {
+            grid-area: b-3;
+        }
+        &-title {
             font-family: $font-proxima-nova-bold;
             font-size: 14px;
             line-height: 140%;
         }
-        &-subtitle{
+        &-subtitle {
             font-size: 14px;
             line-height: 140%;
         }
-        &-svg_massenger{
+        &-svg_massenger {
             padding-top: 7px;
             display: flex;
             column-gap: 16px;
         }
-        &-dev{
+        &-dev {
+            grid-area: b-4;
             padding-top: 16px;
             text-align: end;
             &:hover {
                 color: $color_purpure1;
                 transition: color 0.5s ease;
-                & svg{
+                & svg {
                     fill: $color_purpure1;
-                    & path{
+                    & path {
                         stroke: $color_purpure1;
                         transition: stroke 0.5s ease;
                     }
                 }
             }
         }
-   
     }
 }
+
+@media only screen and (max-width: 950px) {
+    .footer {
+        padding-bottom: 80px;
+
+        &__massenger {
+            grid-template-columns: auto 1fr;
+            grid-template-areas:
+                "b-1 ."
+                "b-2 ."
+                "b-3 b-4";
+            row-gap: 20px;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .footer{
+        &__vg{
+            padding-top: 70px;
+        }
+        &__massenger{
+            padding-top: 90px;
+        }
+    }
+    
+}
+

@@ -1,5 +1,8 @@
 import { useRef, useEffect, useState } from "react"
 import { BottomLine } from "../../../svg/bottomLine";
+import { ColaborationVideo } from "./colaborationVideo";
+import { ColaborationPhoto } from "./colaborationPhoto";
+
 const Collaboration = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
 
     const ref = useRef<HTMLDivElement>(null)
@@ -29,18 +32,11 @@ const Collaboration = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
                     <h3 className="collaboration__area1-subtitle collaboration__area1-bottitle">offers, photo sessions, </h3>
                 </div>
             </div>
-            <div className="collaboration__area1-photo">
-                <div className="collaboration__area1-photo-1 about__born-image" />
-                <div className="collaboration__area1-photo-2 about__born-image" />
-                <div className="collaboration__area1-photo-3 about__born-image" />
-                <div className="collaboration__area1-photo-4 about__born-image" />
-                <div className="collaboration__area1-photo-5 about__born-image" />
-                <div className="collaboration__area1-photo-6 about__born-image" />
-            </div>
             <h5 className="collaboration__area1-foottitle">For all questions of cooperation, please follow the
                 <button className="collaboration__area1-foottitle_contacts" onClick={scrollToBottom}>Contacts <BottomLine /></button>
             </h5>
-
+            <ColaborationPhoto />
+            <ColaborationVideo />
         </div>
         <div className="collaboration__area2">
             <div className="collaboration__area2-interesting" style={{ width: `${w}px` }}>
@@ -53,46 +49,7 @@ const Collaboration = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
             <h5 className="collaboration__area2-videotitle">
                 Also open for cooperation with brands of clothing, shoes, jewelry, etc.
             </h5>
-            <div className="collaboration__area2-video">
-                <div className="collaboration__area2-video-1">
-                    <video
-                        controls
-                        playsInline
-                        muted
-                    >
-                        <source src="./Videos/coll_1.mp4" type="video/mp4" />
-                    </video>
-
-                </div>
-                <div className="collaboration__area2-video-2">
-                    <video
-
-                        controls
-                        playsInline
-                        muted
-                    >
-                        <source src="./Videos/coll_2.mp4" type="video/mp4" />
-                    </video>
-                </div>
-                <div className="collaboration__area2-video-3">
-                    <video
-                        controls
-                        playsInline
-                        muted
-                    >
-                        <source src="./Videos/coll_3.mp4" type="video/mp4" />
-                    </video>
-                </div>
-                <div className="collaboration__area2-video-4">
-                    <video
-                        controls
-                        playsInline
-                        muted
-                    >
-                        <source src="./Videos/coll_4.mp4" type="video/mp4" />
-                    </video>
-                </div>
-            </div>
+            <ColaborationVideo />
         </div>
     </div>)
 }

@@ -24,7 +24,7 @@
         &__list {
             display: flex;
             width: max-content;
-            column-gap: calc(30px + (100vw - 1440px) / 7);
+            column-gap: 40px;
             &-item {
                 padding: 0 10px;
                 cursor: pointer;
@@ -50,6 +50,7 @@
         text-transform: uppercase;
     }
     &__subtitle {
+        font-family: $font-royal-castle-regular;
         font-size: 112px;
         line-height: 0.6;
         text-transform: uppercase;
@@ -161,11 +162,18 @@
         padding-left: 0px !important;
         padding-right: 0px !important;
         height: min-content;
+
+        &__title {
+            margin-bottom: 10px;
+            font-size: 122px;
+        }
         &__subtitle {
-            margin-bottom: 60px;
+            font-size: 92px;
         }
         &__undertitle {
+            font-size: 28px;
             margin-top: 10px;
+            margin-left: 0;
         }
         .header__list {
             display: flex;
@@ -199,7 +207,7 @@
             margin: 0px auto 60px;
             display: flex;
             column-gap: 15px;
-    
+
             &-menu {
                 background: rgba(0, 0, 0, 0.85);
                 min-height: 680px;
@@ -225,7 +233,7 @@
                 }
                 .menu__list {
                     flex-direction: column;
-    
+
                     row-gap: 30px;
                     font-size: 16px;
                     line-height: 19px;
@@ -246,6 +254,37 @@
         width: 100vw;
         margin-top: 100px;
     }
+}
 
+@media only screen and (max-width: 450px) {
+    .header {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        padding-bottom: 20px !important;
+        height: min-content;
 
+        &__title {
+            font-size: 74px;
+            margin: 0;
+        }
+        &__subtitle {
+            font-size: 52px;
+            margin-bottom: 30px;
+        }
+        &__undertitle {
+            font-size: 20px;
+            margin: 40px 0 0 0 ;
+        }
+        &__padding {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        &__button{
+            margin: 90px auto 116px auto;
+        }
+        &__burger{
+            margin: 0px auto;
+        }
+
+    }
 }

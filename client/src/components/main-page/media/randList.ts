@@ -1,5 +1,8 @@
-export const randList = <T>(arr: T[]):Array<T[]> => {
+import { DeviceType } from "../../../types/types-main"
+
+export const randList = <T>(arr: T[], device:DeviceType):Array<T[]> => {
     if (arr.length === 1) return [[...arr]]
+    if (device !== 'pc') return arr.map(e => [e])
 
     let tempArr: Array<T[]> = []
 

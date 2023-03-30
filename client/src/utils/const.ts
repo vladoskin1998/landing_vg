@@ -27,3 +27,13 @@ export const ABOUT_TEXT = [
     "Flic Flac-The Modern Art of Circus in Dortmund, Germany in 2021-2022.",
     "TV show “SuperIntuition” in Kiev, Ukraine.",
 ]
+
+
+export const CLASSES_TEXT = [
+    "Coach in Raw Art Summer School, Kiev, Ukraine in 2021.",
+    "Coach in Flash Pole Dance Studio in Kiev, Ukraine in 2020",
+    "Coach in Shari Pole Dance Studio in Kiev, Ukraine in 2018.",
+    "Did private & group classes in USA, Ukraine.",
+    "Inshi. New circus in Kiev, Ukraine in 2021.",
+]
+

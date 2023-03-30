@@ -1,6 +1,8 @@
 import { randList } from "./randList"
 import { useNavigate } from "react-router-dom"
 import { MediaDataType } from "../../../types/types-main"
+import { useContext } from "react"
+import { AppContext } from "../../../context/context"
 
 const makeTitle = (link: string): string => {
     switch (link) {
@@ -23,11 +25,12 @@ export const WraperMedia = <T extends MediaDataType,>({
 
     const navigate = useNavigate()
     const title = makeTitle(link)
+    const { device } = useContext(AppContext)
 
     return <div className={`media ${title}`} id={title[0].toUpperCase() + title.slice(1)}>
         <h4 className="title__links">{title}</h4>
         <div className="media__list">
-            {randList(arr).map((arrItem: T[], index: number) => (
+            {randList(arr, device).map((arrItem: T[], index: number) => (
                 <div
                     className={`media__itemline-${arrItem.length}-${index % 2 === 0 ? "p" : "n"
                         } media__itemline`}

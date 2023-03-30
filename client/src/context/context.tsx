@@ -1,6 +1,5 @@
 import React, { createContext, useState, useRef, useEffect, ReactNode, RefObject } from 'react';
-
-type DeviceType = "pc" | "mobile" | "tablet"
+import { DeviceType } from '../types/types-main';
 
 const AppContext = createContext<{
     device: DeviceType,
