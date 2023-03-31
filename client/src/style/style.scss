@@ -110,3 +110,7 @@ button {
     }
     
 }
+
+.no-hover *:hover {
+    pointer-events: none;
+  }

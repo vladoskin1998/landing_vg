@@ -1,12 +1,8 @@
 import { HeaderList } from "../header/headerList"
 import { AboutVideo } from "./about-video"
-import { useContext } from "react"
-import { AppContext } from "../../../context/context"
 import { ABOUT_TEXT as textList} from "../../../utils/const"
 
 const About = () => {
-
-    const { device } = useContext(AppContext)
 
     return (
         <div className="about about__born-image" id="About">

@@ -20,6 +20,11 @@
         position: fixed;
         right: 30px;
         bottom: 40px;
+        padding: 0 !important;
+        background: repeating-radial-gradient(#00000059, transparent 100px);
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
     }
     
 }

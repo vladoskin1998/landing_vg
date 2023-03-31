@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { WraperList } from "./WraperList";
+import { WraperList } from "./wraperList";
 
 const arr = [
     { src: "string", photoId: "1" },

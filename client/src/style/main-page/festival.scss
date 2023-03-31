@@ -62,6 +62,10 @@
     .festival {
         min-height: 572px;
         background-color: $color_black1;
+        &__area-text{
+            padding: 76px 0;
+            max-width: 360px;
+        }
         &__area-list {
             position: absolute;
             top: 392px;

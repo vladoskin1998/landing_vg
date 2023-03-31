@@ -1,4 +1,4 @@
-import { WraperList } from "./WraperList";
+import { WraperList } from "./wraperList";
 
 const arr = [
     { src: "string", photoId: "1" },

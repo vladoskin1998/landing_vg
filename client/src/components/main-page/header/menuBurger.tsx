@@ -8,16 +8,17 @@ export const MenuBurger = ({ children, close, open }: { children: ReactNode, clo
         return <></>
     }
 
-    return  <div className="header__burger-menu-wrap" onClick={close}>
- <div className="header__burger-menu">
-        {children}
-        <div className="header__burger-menu_logo">
-            <Logo />
-            <button onClick={close}>
-                <CloseSlick />
-            </button>
+
+    return <div className="header__burger-menu_wrap" onClick={close}>
+        <div className="header__burger-menu">
+            {children}
+            <div className="header__burger-menu_logo">
+                <Logo />
+                <button onClick={close}>
+                    <CloseSlick />
+                </button>
+            </div>
         </div>
     </div>
-    </div>
-   
+
 }

@@ -21,27 +21,24 @@ const Collaboration = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
             <h4 className="title__links">Collaboration</h4>
             <h3 className="collaboration__area1-subtitle">Open for</h3>
             <div className="collaboration__area1-interesting" ref={ref}>
-                <div>i</div>
-                <div>n</div>
-                <div>t</div>
-                <div>e</div>
-                <div>r</div>
-                <div>e</div>
-                <div>s</div>
+                {
+                    "interes".split('').map((e, index) => <div key={"collaboration__area1-interesting" + index}>{e}</div> )
+                }
                 <div>t
                     <h3 className="collaboration__area1-subtitle collaboration__area1-bottitle">offers, photo sessions, </h3>
                 </div>
             </div>
+
+            <ColaborationPhoto />
+            <ColaborationVideo />
             <h5 className="collaboration__area1-foottitle">For all questions of cooperation, please follow the
                 <button className="collaboration__area1-foottitle_contacts" onClick={scrollToBottom}>Contacts <BottomLine /></button>
             </h5>
-            <ColaborationPhoto />
-            <ColaborationVideo />
         </div>
         <div className="collaboration__area2">
             <div className="collaboration__area2-interesting" style={{ width: `${w}px` }}>
                 <div>i
-                    <h3 className="collaboration__area1-subtitle collaboration__area2-bottitle">and video filming! </h3>
+                    <h3 className="collaboration__area1-subtitle collaboration__area2-bottitle">and video! </h3>
                 </div>
                 <div>n</div>
                 <div>g</div>

@@ -18,15 +18,27 @@ export const Footer = () => {
             </div>
             <div>
                 <h5 className="footer__massenger-title">Follow</h5>
-                <div className="footer__massenger-svg_massenger"><Insta /><FB /><TikTok /></div>
+                <div className="footer__massenger-svg_massenger">
+                    <a href=" https://instagram.com/veronika.goroshkova?igshid=YmMyMTA2M2Y=" target="_blank">
+                        <Insta />
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100014832395332&mibextid=LQQJ4d" target="_blank">
+                        <FB />
+                    </a>
+                    <a href="https://www.tiktok.com/@nika.aerial.pole?_t=8aFCg3X0ko1&_r=1" target="_blank">
+                        <TikTok />
+                    </a>
+                </div>
             </div>
-            <div className="footer__massenger-dev">
-                <button className="footer__massenger-subtitle"> website  
-                <span className="footer__massenger-title footer__massenger-svg_line">
-                    {" development "} <RotLine />
-                </span> 
-                </button>
-            </div>
+            <a href="https://instagram.com/ruslan_ray_?igshid=ZjE2NGZiNDQ=" target="_blank">
+                <div className="footer__massenger-dev">
+                    <button className="footer__massenger-subtitle"> website
+                        <span className="footer__massenger-title footer__massenger-svg_line">
+                            {" development "} <RotLine />
+                        </span>
+                    </button>
+                </div>
+            </a>
         </div>
     </div>
 }

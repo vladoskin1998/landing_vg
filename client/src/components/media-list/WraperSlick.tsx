@@ -20,11 +20,6 @@ export const WraperSlick = () => {
         slidesToScroll: 1
     };
 
-    console.log(refSlick);
-
-
-
-    
     return <div className="slick_cust">
         <button className="slick_cust__close" onClick={() => navigate(-1)}>
             <CloseSlick />

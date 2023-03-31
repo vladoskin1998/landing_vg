@@ -17,6 +17,7 @@
         }
         &-list{
             grid-area: t-1;
+            padding-bottom: 10px;
         }
         &_p1 {
             grid-area: p-1;
@@ -94,7 +95,7 @@
     .classes__area{
         margin-top: 60px;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 183px 240px 150px 110px 135px 100px 30px 100px 125px  240px ;
+        grid-template-rows: 203px 240px 150px 110px 135px 100px 30px 100px 125px  240px ;
         grid-template-areas:
         "t-1 t-1"
         "p-1 p-1"
@@ -108,7 +109,7 @@
         "p-8 p-8"
         ;
         .title__links{
-            padding-bottom: 20px;
+            padding-bottom: 15px;
         }
     }
 

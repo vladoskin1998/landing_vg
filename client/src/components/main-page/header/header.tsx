@@ -2,7 +2,7 @@ import { Menu } from "./menu"
 import { Logo } from "../../../svg/logo"
 import { HeaderList } from "./headerList"
 import { SlickHeader } from "./slickHeader"
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import { AppContext } from "../../../context/context"
 import { AboutVideo } from "../about/about-video"
 import { Burger } from '../../../svg/burger'
@@ -14,7 +14,18 @@ const Header = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
 
     const { device } = useContext(AppContext)
     const [open, setOpen] = useState(false)
-    
+
+    useEffect(() => {
+        const html = document.querySelector('html');
+        if (html) {
+            if (open) {
+                html.style.overflow = "hidden";
+            } else {
+                html.style.overflowY = "unset";
+            }
+        }
+    }, [open]);
+
     return (
         <div className="header">
             <div className="header-bg1 header-helper "></div>

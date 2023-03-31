@@ -12,18 +12,28 @@ const ContextProvider = ({ children, refApp }: { children: ReactNode, refApp: Re
     const [device, setDevice] = useState<DeviceType>("pc")
 
     useEffect(() => {
-        if (refApp?.current?.offsetWidth !== undefined) {
-            if (refApp?.current?.offsetWidth < 400) {
-                setDevice("mobile")
+        const handleResize = () => {
+          if (refApp?.current?.offsetWidth !== undefined) {
+            if (refApp?.current?.offsetWidth < 450) {
+              setDevice("mobile");
+              document.body.classList.add("no-hover");
+            } else if (refApp?.current?.offsetWidth < 950) {
+              setDevice("tablet");
+              document.body.classList.add("no-hover");
+            } else {
+              setDevice("pc");
+              document.body.classList.remove("no-hover");
             }
-            else if (refApp?.current?.offsetWidth < 850) {
-                setDevice("tablet")
-            }
-            else {
-                setDevice("pc")
-            }
-        }
-    }, [])
+          }
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+      
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
+      }, [refApp?.current?.offsetWidth]);
 
     return <AppContext.Provider value={
         {
