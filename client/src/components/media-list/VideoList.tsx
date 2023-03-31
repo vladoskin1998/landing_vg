@@ -1,10 +1,10 @@
 import { WraperList } from "./wraperList";
 
 const arr = [
-    { src: "string", photoId: "1" },
-    { src: "string", photoId: "2" },
-    { src: "string", photoId: "3" },
-    { src: "string", photoId: "4" },
+    { src: "string", videoId: "1" },
+    { src: "string", videoId: "2" },
+    { src: "string", videoId: "3" },
+    { src: "string", videoId: "4" },
 ]
 
 export const VideoList = () => {

@@ -37,7 +37,7 @@ export const WraperMedia = <T extends MediaDataType,>({
                 >
                     {arrItem.map((item) => (
                         <div style={{ backgroundImage: item.src }} className="media__item"
-                            onClick={() => navigate(`/${link}/${item.setId}`)}>
+                            onClick={() => navigate(`/${link}/${item.folderId}`)}>
                             <h5 className="media__item-text">{item.label}</h5>
                             <div className="media__item-bg">
                                 <button className="media__item-bg_but">view <br />all</button>
