@@ -25,7 +25,7 @@ const Header = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
             }
         }
     }, [open]);
-
+    
     return (
         <div className="header">
             <div className="header-bg1 header-helper "></div>
@@ -62,7 +62,6 @@ const Header = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
                         </div>
                     </>
             }
-
             <button className="header__burger" onClick={() => setOpen(true)}>
                 <Logo />
                 <Burger />

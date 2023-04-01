@@ -2,6 +2,8 @@
 @import "main-page.scss";
 @import "loader.scss";
 @import "media-list/media-list.scss";
+@import "admin/admin.scss";
+
 /* Обнуляющие стили для HTML элементов */
 html {
     box-sizing: border-box;
@@ -110,7 +112,3 @@ button {
     }
     
 }
-
-.no-hover *:hover {
-    pointer-events: none;
-  }

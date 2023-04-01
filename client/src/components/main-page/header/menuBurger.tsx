@@ -8,7 +8,6 @@ export const MenuBurger = ({ children, close, open }: { children: ReactNode, clo
         return <></>
     }
 
-
     return <div className="header__burger-menu_wrap" onClick={close}>
         <div className="header__burger-menu">
             {children}

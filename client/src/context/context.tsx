@@ -3,15 +3,19 @@ import { DeviceType } from '../types/types-main';
 
 const AppContext = createContext<{
     device: DeviceType,
+    isAuth: string,
 }>({
-    device: "pc"
+    device: "pc",
+    isAuth: localStorage.getItem("token") || "",
 });
 
 const ContextProvider = ({ children, refApp }: { children: ReactNode, refApp: RefObject<HTMLDivElement> }) => {
 
     const [device, setDevice] = useState<DeviceType>("pc")
+    const [isAuth, setIsAuth] = useState(localStorage.getItem("token") || "")
 
     useEffect(() => {
+
         const handleResize = () => {
           if (refApp?.current?.offsetWidth !== undefined) {
             if (refApp?.current?.offsetWidth < 450) {
@@ -29,8 +33,15 @@ const ContextProvider = ({ children, refApp }: { children: ReactNode, refApp: Re
 
         handleResize();
         window.addEventListener("resize", handleResize);
+
+        const onStorageChange = () => {
+          setIsAuth(localStorage.getItem("token") || "");
+        };
+
+        window.addEventListener("storage", onStorageChange);
       
         return () => {
+          window.removeEventListener("storage", onStorageChange);
           window.removeEventListener("resize", handleResize);
         };
       }, [refApp?.current?.offsetWidth]);
@@ -38,6 +49,7 @@ const ContextProvider = ({ children, refApp }: { children: ReactNode, refApp: Re
     return <AppContext.Provider value={
         {
             device,
+            isAuth,
         }
     }>
         {children}

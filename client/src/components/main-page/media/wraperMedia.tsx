@@ -1,9 +1,9 @@
 import { randList } from "./randList"
 import { useNavigate } from "react-router-dom"
 import { MediaDataType } from "../../../types/types-main"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { AppContext } from "../../../context/context"
-
+import { AddNew } from "../../admin/add"
 const makeTitle = (link: string): string => {
     switch (link) {
         case "photo-list":
@@ -26,8 +26,11 @@ export const WraperMedia = <T extends MediaDataType,>({
     const navigate = useNavigate()
     const title = makeTitle(link)
     const { device } = useContext(AppContext)
+    const [opesAdd, setOpenAdd] = useState(false)
 
     return <div className={`media ${title}`} id={title[0].toUpperCase() + title.slice(1)}>
+        <button className="media--add" onClick={() => setOpenAdd(true)}>Add Collection</button>
+        {opesAdd && <AddNew close={() => setOpenAdd(false)}/>}
         <h4 className="title__links">{title}</h4>
         <div className="media__list">
             {randList(arr, device).map((arrItem: T[], index: number) => (
@@ -38,6 +41,7 @@ export const WraperMedia = <T extends MediaDataType,>({
                     {arrItem.map((item) => (
                         <div style={{ backgroundImage: item.src }} className="media__item"
                             onClick={() => navigate(`/${link}/${item.folderId}`)}>
+                            <button className="media__item--delete">Delete</button>
                             <h5 className="media__item-text">{item.label}</h5>
                             <div className="media__item-bg">
                                 <button className="media__item-bg_but">view <br />all</button>

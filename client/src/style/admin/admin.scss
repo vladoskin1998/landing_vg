@@ -1,0 +1,85 @@
+.login {
+    font-size: 14px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    min-width: 300px;
+    transform: translate(-50%, 0);
+    border-radius: 4px;
+    padding: 15px 40px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    border: 1px solid $color_blue1;
+    background-color: $color_white;
+    button {
+        font-size: 14px;
+    }
+    &__text {
+        text-align: start;
+        color: $color_blue1;
+    }
+    &__input {
+        border: 1px solid $color_blue2;
+        height: 25px;
+        padding: 0 2px;
+        z-index: 6;
+    }
+    &__nav {
+        margin: 14px 0 0 0;
+        display: flex;
+        justify-content: end;
+        column-gap: 12px;
+        .media__item--delete {
+            position: static;
+        }
+        .media--add {
+            position: static;
+        }
+    }
+    &__logout {
+        position: fixed;
+        top: 20px;
+        right: 40px;
+        width: fit-content;
+        color: $color_blue1;
+        .media__item--delete {
+            margin: 3px;
+            position: static;
+        }
+    }
+
+}
+
+.login.add {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    & li{
+        display: flex;
+        justify-content: space-between;
+    }
+    .media--add {
+        position: static;
+    }
+    .add__label{
+        cursor: pointer;
+    }
+    .add__del{
+        color: red;
+        margin-left: 15px;
+    }
+}
+
+
+
+
+#file-upload {
+    display: none;
+}
+
