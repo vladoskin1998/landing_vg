@@ -4,7 +4,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-
+import { JwtService } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -17,6 +17,7 @@ import { AuthModule } from './auth/auth.module';
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
         uri: configService.get('MONGO_URI'),
+        dbName: 'vg',
       }),
     }),
   ],

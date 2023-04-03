@@ -25,6 +25,6 @@ export class AuthController {
   @Delete('logout')
   async logout(@Body() createLogouthDto: CreateLogouthDto) {
     await this.authService.logout(createLogouthDto);
-    return { message: 'Вы успешно вышли из аккаунта' };
+    return { message: 'LogOut' };
   }
 }

@@ -5,14 +5,16 @@ import { Auth } from './auth.schema';
 import { CreateAuthDto, CreateLogouthDto } from './auth.dto';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+import { ConfigService } from '@nestjs/config';
 
-
+//console.log("bcrypt.hash('VeronAriel2000', 5)", bcrypt.hashSync('VeronAriel1999', 5));
 
 @Injectable()
 export class AuthService {
   constructor(
     @InjectModel(Auth.name) private authModel: Model<Auth>,
     private readonly jwtService: JwtService,
+    private readonly configService: ConfigService,
   ) {}
 
   async login(createAuthDto: CreateAuthDto): Promise<{ token: string }> {
@@ -30,16 +32,20 @@ export class AuthService {
       throw new HttpException('Incorrect password', HttpStatus.NOT_FOUND);
     }
 
-    const token = await this.jwtService.signAsync({ login });
+    const token = await this.jwtService.signAsync(
+      { login },
+      { secret: this.configService.get('JWT_SECRET') },
+    );
 
-    user.set({ token });
-    await user.save();
+    await user.updateOne({ token, lastEntered: new Date() });
 
     return { token };
   }
 
   async logout(createLogouthDto: CreateLogouthDto): Promise<void> {
-    await this.authModel.findOneAndDelete(createLogouthDto);
+    console.log('lloog');
+
+    await this.authModel.findOneAndUpdate(createLogouthDto, { token: '' });
     return;
   }
 }
