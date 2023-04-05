@@ -22,7 +22,7 @@ export class AuthController {
     return token;
   }
 
-  @Delete('logout')
+  @Post('logout')
   async logout(@Body() createLogouthDto: CreateLogouthDto) {
     await this.authService.logout(createLogouthDto);
     return { message: 'LogOut' };

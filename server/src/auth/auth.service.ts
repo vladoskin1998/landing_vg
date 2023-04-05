@@ -7,8 +7,6 @@ import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 
-//console.log("bcrypt.hash('VeronAriel2000', 5)", bcrypt.hashSync('VeronAriel1999', 5));
-
 @Injectable()
 export class AuthService {
   constructor(
@@ -34,7 +32,7 @@ export class AuthService {
 
     const token = await this.jwtService.signAsync(
       { login },
-      { secret: this.configService.get('JWT_SECRET') },
+      { secret: this.configService.get('JWT_SECRET') ,expiresIn: '1d' },
     );
 
     await user.updateOne({ token, lastEntered: new Date() });
