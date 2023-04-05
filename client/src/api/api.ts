@@ -5,13 +5,17 @@ const href =
         ? "http://localhost:5001/"
         : window.location.href
 
-const $api = axios.create({})
+const $api = axios.create({
+    baseURL: href + 'user/',
+})
 
 export const $authApi = axios.create({
     baseURL: href,
 })
 
-const $adminApi = axios.create({})
+export const $adminApi = axios.create({
+    baseURL: href + 'admin/',
+})
 
 $adminApi.interceptors.request.use((config) => {
     const token = localStorage.getItem("token")

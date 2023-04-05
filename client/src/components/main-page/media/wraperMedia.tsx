@@ -33,7 +33,9 @@ export const WraperMedia = <T extends MediaDataType,>({
             isAuth
             && <>
                 <button className="media--add" onClick={() => setOpenAdd(true)}>Add Collection</button>
-                {opesAdd && <AddNew close={() => setOpenAdd(false)} />}
+                {opesAdd && <AddNew close={() => setOpenAdd(false)} 
+                link={`folder-${title}`}
+                />}
             </>
 
         }
@@ -44,7 +46,7 @@ export const WraperMedia = <T extends MediaDataType,>({
                 <div
                     className={`media__itemline-${arrItem.length}-${index % 2 === 0 ? "p" : "n"
                         } media__itemline`}
-                    key={'media__itemline' + index}
+                    key={'wraper-media' + index}
                 >
                     {arrItem.map((item) => (
                         <div style={{ backgroundImage: item.src }} className="media__item"
@@ -52,6 +54,7 @@ export const WraperMedia = <T extends MediaDataType,>({
                             {
                                 isAuth && <button className="media__item--delete">Delete</button>
                             }
+
                             <h5 className="media__item-text">{item.label}</h5>
                             <div className="media__item-bg">
                                 <button className="media__item-bg_but">view <br />all</button>

@@ -1,47 +1,36 @@
 import { useState } from "react";
+import { $adminApi } from "../../api/api";
 
-type FileList = {
-    name: string;
-    size: number;
-    type: string;
-    url: string;
-}[];
+export const AddNew = ({ close, link }: { close: () => void, link: string }) => {
 
-export const AddNew = ({ close }: { close: () => void }) => {
+    const [showList, setShowList] = useState(false)
+    const [files, setFiles] = useState<File[]>([]);
 
-    const [files, setFiles] = useState<FileList>([]);
-    const [showList, setShowList] = useState<boolean>(false);
+    const handleFileUpload = (e: any) => {
+        setFiles(e.target.files);
+    };
 
-    console.log(
-        'files', files
-    );
-
-
-    const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (event.target.files) {
-            const fileList = event.target.files;
-            const newFiles: FileList = [];
-            for (let i = 0; i < fileList.length; i++) {
-                const file = fileList[i];
-                const url = URL.createObjectURL(file);
-                newFiles.push({
-                    name: file.name,
-                    size: file.size,
-                    type: file.type,
-                    url,
-                });
-            }
-            setFiles((prevFiles) => [...prevFiles, ...newFiles]);
+    const handleUpload = async () => {
+        const formData = new FormData();
+        for (let i = 0; i < files.length; i++) {
+            formData.append(`files`, files[i]);
+        }
+        try {
+            await $adminApi.post('folder-photo', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+            });
+            close()
+        } catch (error) {
+            console.error(error);
         }
     };
 
-    const handleFileDelete = (index: number) => {
-        setFiles((prevFiles) => {
-            const updatedFiles = [...prevFiles];
-            updatedFiles.splice(index, 1);
-            return updatedFiles;
-        });
-    };
+
+    const handleFileDelete = (i: number) => {
+        setFiles(
+            Array.from(files).filter((el, index) => index !== i)
+        )
+    }
 
     return (
         <div className="login add">
@@ -58,15 +47,15 @@ export const AddNew = ({ close }: { close: () => void }) => {
                 <>
                     <h4 className="login__text">.jpg,.jpeg,.png,.mp3,.mp4</h4>
                     <ul>
-                        {files.map((file, index) => (
+                        {Array.from(files).map((file, index) => (
                             <li key={file.name}>
                                 <div>
                                     <span>{
-                                    `${file.name}/${file.size}`.length > 25 
-                                    ? `${file.name}/${file.size}`.split('').slice(0, 25).join('') + "..." 
-                                    : `${file.name}/${file.size}`} bite</span>
+                                        `${file.name}/${file.size}`.length > 25
+                                            ? `${file.name}/${file.size}`.split('').slice(0, 25).join('') + "..."
+                                            : `${file.name}/${file.size}`} bite</span>
                                 </div>
-                                <button className="add__del" onClick={() => handleFileDelete(index)}>Delete</button>
+                                <button className="add__del" onClick={(e) => handleFileDelete(index)}>Delete</button>
 
                             </li>
                         ))}
@@ -77,7 +66,7 @@ export const AddNew = ({ close }: { close: () => void }) => {
                 <button className="media__item--delete" onClick={close}>
                     Cancel
                 </button>
-                <button className="media--add">Add Collection</button>
+                <button className="media--add" onClick={handleUpload}>Upload To Server</button>
             </div>
         </div>
     );
