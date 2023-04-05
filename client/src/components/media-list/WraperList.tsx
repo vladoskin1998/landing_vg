@@ -30,7 +30,7 @@ export const WraperList = <T extends { src: string },>({
     const navigate = useNavigate()
     const location = useLocation();
     const path = title(location.pathname.split('/')[1]);
-    const { device } = useContext(AppContext)
+    const { device, isAuth } = useContext(AppContext)
 
     const exit = () => {
         navigate(-1)
@@ -47,7 +47,10 @@ export const WraperList = <T extends { src: string },>({
     return <div className="media__list content">
         <Outlet />
         <div className="media">
-            <button className="media--add">Add files</button>
+            {
+                isAuth && <button className="media--add">Add files</button> 
+            }
+
             <h4 className="title__links" onClick={exit}>
                 <div><LeftLine /></div>
                 back to {path.title}
@@ -58,7 +61,7 @@ export const WraperList = <T extends { src: string },>({
                 <h5>{setId}</h5>
             </div>
             <div className="media__list">
-              
+
                 {randList(arr, device).map((arrItem: T[], index: number) => (
                     <div
                         className={`media__itemline-${arrItem.length}-${index % 2 === 0 ? "p" : "n"
@@ -66,7 +69,7 @@ export const WraperList = <T extends { src: string },>({
                     >
                         {arrItem.map((item, id) => (
                             <div style={{ backgroundImage: item.src }} className="media__item" >
-                                 <button className="media__item--delete">Delete</button>
+                                <button className="media__item--delete">Delete</button>
                                 <div className="media__item-bg" onClick={() => toSlick("someid--->" + id)}>
                                     <button className="media__item-bg_but"> {path.buttonTitle}</button>
                                 </div>

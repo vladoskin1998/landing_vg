@@ -25,23 +25,33 @@ export const WraperMedia = <T extends MediaDataType,>({
 
     const navigate = useNavigate()
     const title = makeTitle(link)
-    const { device } = useContext(AppContext)
+    const { device, isAuth } = useContext(AppContext)
     const [opesAdd, setOpenAdd] = useState(false)
 
     return <div className={`media ${title}`} id={title[0].toUpperCase() + title.slice(1)}>
-        <button className="media--add" onClick={() => setOpenAdd(true)}>Add Collection</button>
-        {opesAdd && <AddNew close={() => setOpenAdd(false)}/>}
+        {
+            isAuth
+            && <>
+                <button className="media--add" onClick={() => setOpenAdd(true)}>Add Collection</button>
+                {opesAdd && <AddNew close={() => setOpenAdd(false)} />}
+            </>
+
+        }
+
         <h4 className="title__links">{title}</h4>
         <div className="media__list">
             {randList(arr, device).map((arrItem: T[], index: number) => (
                 <div
                     className={`media__itemline-${arrItem.length}-${index % 2 === 0 ? "p" : "n"
                         } media__itemline`}
+                    key={'media__itemline' + index}
                 >
                     {arrItem.map((item) => (
                         <div style={{ backgroundImage: item.src }} className="media__item"
                             onClick={() => navigate(`/${link}/${item.folderId}`)}>
-                            <button className="media__item--delete">Delete</button>
+                            {
+                                isAuth && <button className="media__item--delete">Delete</button>
+                            }
                             <h5 className="media__item-text">{item.label}</h5>
                             <div className="media__item-bg">
                                 <button className="media__item-bg_but">view <br />all</button>

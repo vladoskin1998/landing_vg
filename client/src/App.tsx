@@ -11,10 +11,9 @@ const WraperSlick = React.lazy(() => import("./components/media-list/wraperSlick
 
 function App() {
 
-   const refApp = useRef<HTMLDivElement>(null)
+    const refApp = useRef<HTMLDivElement>(null)
 
     return (
-
         <div className="App" ref={refApp}>
             <Suspense fallback={<Loader />}>
                 <ContextProvider refApp={refApp}>
@@ -30,9 +29,9 @@ function App() {
                         </Route>
                         <Route path="*" element={<NoMatch />} />
                     </Routes>
+                    <Login />
                 </ContextProvider>
             </Suspense>
-            <Login />
         </div>
     )
 }
