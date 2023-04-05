@@ -1,10 +1,12 @@
-import { Module } from '@nestjs/common';
+import { Module,MiddlewareConsumer } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { JwtService } from '@nestjs/jwt';
+import { FileMiddleware } from './middlewares/file.middleware';
+import { MediaController } from './media/media.controller';
+import { MediaModule } from './media/media.module';
 
 @Module({
   imports: [
@@ -20,8 +22,13 @@ import { JwtService } from '@nestjs/jwt';
         dbName: 'vg',
       }),
     }),
+    MediaModule,
   ],
-  controllers: [AppController ],
+  controllers: [AppController, MediaController ],
   providers: [AppService ],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(FileMiddleware).forRoutes('*');
+  }
+}
