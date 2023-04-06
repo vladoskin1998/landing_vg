@@ -1,10 +1,25 @@
 import { useState } from "react";
-import { $adminApi } from "../../api/api";
+import { $api } from "../../api/api";
+import { MediaEnumFile } from "../../types/types-main";
 
+const dataUpload = (key: string): { format: string, tag: MediaEnumFile.PHOTO | MediaEnumFile.VIDEO } => {
+    switch (key) {
+        case "folder-photo":
+            return { format: '.jpg,.jpeg,.png', tag: MediaEnumFile.PHOTO }
+        case "folder-video":
+            return { format: '.mp4', tag: MediaEnumFile.VIDEO }
+        default:
+            return { format: '.jpg,.jpeg,.png', tag: MediaEnumFile.PHOTO }
+    }
+}
 export const AddNew = ({ close, link }: { close: () => void, link: string }) => {
 
     const [showList, setShowList] = useState(false)
     const [files, setFiles] = useState<File[]>([]);
+
+    const [folder, setFolder] = useState('')
+
+    const { format, tag } = dataUpload(link)
 
     const handleFileUpload = (e: any) => {
         setFiles(e.target.files);
@@ -12,16 +27,21 @@ export const AddNew = ({ close, link }: { close: () => void, link: string }) => 
 
     const handleUpload = async () => {
         const formData = new FormData();
+        if (!folder) {
+            return alert('Required field input folder')
+        }
+        formData.append('title', folder);
+        formData.append('tag', tag);
         for (let i = 0; i < files.length; i++) {
             formData.append(`files`, files[i]);
         }
         try {
-            await $adminApi.post('folder-photo', formData, {
+            await $api.post('media/add-folder', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             close()
         } catch (error) {
-            console.error(error);
+            alert(error)
         }
     };
 
@@ -35,25 +55,29 @@ export const AddNew = ({ close, link }: { close: () => void, link: string }) => 
     return (
         <div className="login add">
             <h4 className="login__text">Add Collection</h4>
-            <input type="text" className="login__input" />
+            <div>
+                <h4 className="login__text">FOLDER</h4>
+                <input type="text" className="login__input" value={folder} onChange={e => setFolder(e.target.value)} />
+                <h4 className="login__text login__text-req">Required field</h4>
+            </div>
             <label htmlFor="file-upload" className="media--add add__label">
                 Download file
             </label>
-            <input type="file" multiple accept=".jpg,.jpeg,.png,.mp3,.mp4" id="file-upload" onChange={(e) => {
+            <input type="file" multiple accept={format} id="file-upload" onChange={(e) => {
                 setShowList(true)
                 handleFileUpload(e)
             }} />
+            <h4 className="login__text">{format}</h4>
             {showList && (
                 <>
-                    <h4 className="login__text">.jpg,.jpeg,.png,.mp3,.mp4</h4>
                     <ul>
                         {Array.from(files).map((file, index) => (
                             <li key={file.name}>
                                 <div>
                                     <span>{
                                         `${file.name}/${file.size}`.length > 25
-                                            ? `${file.name}/${file.size}`.split('').slice(0, 25).join('') + "..."
-                                            : `${file.name}/${file.size}`} bite</span>
+                                            ? `${file.name}`.split('').slice(0, 25).join('') + "..."
+                                            : `${file.name}`}</span>
                                 </div>
                                 <button className="add__del" onClick={(e) => handleFileDelete(index)}>Delete</button>
 

@@ -18,6 +18,9 @@
     &__text {
         text-align: start;
         color: $color_blue1;
+        &-req{
+            color: $color_red;
+        }
     }
     &__input {
         border: 1px solid $color_blue2;
@@ -71,7 +74,7 @@
         cursor: pointer;
     }
     .add__del{
-        color: red;
+        color: $color_red;
         margin-left: 15px;
     }
 }

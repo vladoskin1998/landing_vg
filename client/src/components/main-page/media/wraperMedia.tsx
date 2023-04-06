@@ -4,6 +4,8 @@ import { MediaDataType } from "../../../types/types-main"
 import { useContext, useState } from "react"
 import { AppContext } from "../../../context/context"
 import { AddNew } from "../../admin/add"
+import { HREF } from "../../../utils/const"
+
 const makeTitle = (link: string): string => {
     switch (link) {
         case "photo-list":
@@ -14,6 +16,8 @@ const makeTitle = (link: string): string => {
             return 'not found'
     }
 }
+
+
 
 export const WraperMedia = <T extends MediaDataType,>({
     arr,
@@ -47,15 +51,16 @@ export const WraperMedia = <T extends MediaDataType,>({
                     className={`media__itemline-${arrItem.length}-${index % 2 === 0 ? "p" : "n"
                         } media__itemline`}
                     key={'wraper-media' + index}
+                    
                 >
                     {arrItem.map((item) => (
-                        <div style={{ backgroundImage: item.src }} className="media__item"
-                            onClick={() => navigate(`/${link}/${item.folderId}`)}>
+                        <div style={{backgroundImage:`url(${HREF}static/${item.src})`}} className="media__item about__born-image"
+                            onClick={() => navigate(`/${link}/${item?.folderId}`)}>
                             {
                                 isAuth && <button className="media__item--delete">Delete</button>
                             }
 
-                            <h5 className="media__item-text">{item.label}</h5>
+                            <h5 className="media__item-text">{item?.label}</h5>
                             <div className="media__item-bg">
                                 <button className="media__item-bg_but">view <br />all</button>
                             </div>

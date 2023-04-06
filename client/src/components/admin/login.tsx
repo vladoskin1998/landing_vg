@@ -32,7 +32,7 @@ export const Login = () => {
     }, []);
 
     const loginAuth = () => {
-        $authApi.post('auth/login',
+        $authApi.post('login',
             { login, password }
         )
             .then(m => {
@@ -46,7 +46,7 @@ export const Login = () => {
     }
 
     const logoutAuth = () => {
-        $authApi.post('auth/logout',
+        $authApi.post('logout',
             { token: localStorage.getItem("token") }
 
         ).then(

@@ -3,17 +3,32 @@ import { MediaService } from './media.service';
 import { MediaController } from './media.controller';
 import { MulterModule } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
+import { MongooseModule } from '@nestjs/mongoose';
+import { Media, MediaSchema } from './media.schema';
+import { v4 as uuidv4 } from 'uuid';
+import * as mime from 'mime-types';
 
 @Module({
   imports: [
+    MongooseModule.forFeature([{ name: Media.name, schema: MediaSchema }]),
     MulterModule.register({
       storage: diskStorage({
-        destination: './files',
-
+        destination: './uploads/',
+        filename: (req, file, cb) => {
+          const uniqueSuffix = uuidv4();
+          const ext = mime.extension(file.mimetype);
+          cb(null, uniqueSuffix + '.' + ext);
+        },
       }),
+      fileFilter: (req, file, cb) => {
+        if (!file.originalname.match(/\.(jpg|jpeg|png|mp4)$/)) {
+          return cb(new Error('Only image files are allowed!'), false);
+        }
+        cb(null, true);
+      },
     }),
   ],
   controllers: [MediaController],
-  providers: [MediaService]
+  providers: [MediaService],
 })
 export class MediaModule {}

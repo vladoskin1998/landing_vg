@@ -1,36 +1,49 @@
 import {
+  Body,
   Controller,
   Post,
   UploadedFiles,
-  UploadedFile,
   UseInterceptors,
+  Get
 } from '@nestjs/common';
-import {
-  AnyFilesInterceptor,
-  FilesInterceptor,
-} from '@nestjs/platform-express';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import { v4 as uuidv4 } from 'uuid';
-import { FileInterceptor } from '@nestjs/platform-express';
+import * as fs from 'fs';
+import * as path from 'path';
+import { MediaService } from './media.service';
+import { MediaTypeFile, MediaEnumFile } from '../types/types';
 
-@Controller('admin')
+@Controller('media')
 export class MediaController {
+  constructor(private readonly mediaService: MediaService) {}
 
-  @Post('folder-photo')
+  @Post('add-folder')
   @UseInterceptors(FilesInterceptor('files'))
-  async uploadedFile(@UploadedFiles() file) {
-    // const response = {
-    // 	originalname: file.originalname,
-    // 	filename: file.filename,
-    // };
-    console.log(file);
+  async addFolder(
+    @UploadedFiles() files: Express.Multer.File[],
+    @Body() body,
+  ) {
+    const { title, tag }:{title:string, tag: MediaTypeFile } = body;
+
+    const filenames:string[] = files.map(file => file.filename);
+    const filepath =  files.map(file => file.path);
+
+    await this.mediaService.addFolder({ title, filenames, tag });
+ 
     
-    return 0;
-}
+    // if(tag === MediaEnumFile.VIDEO){
+    //   await this.mediaService.poster(filepath);
+    // }
 
-  //URL запроса: http://localhost:5001/admin/folder/photo
+    return { message: 'Файл загружен' };
+  }
 
-  @Post('folder/video')
-  async addFolderVideo() {}
+
+  @Post('get-folders')
+  async getFolders(@Body() {tag}: {tag:MediaTypeFile}){
+    return await this.mediaService.getFolders(tag)
+  }
+
 
   @Post()
   async addItem() {}

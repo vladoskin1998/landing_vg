@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { MediaController } from './media/media.controller';
 import { MediaModule } from './media/media.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -22,8 +24,17 @@ import { MediaModule } from './media/media.module';
       }),
     }),
     MediaModule,
+    // ServeStaticModule.forRoot({
+    //   rootPath: join(__dirname, '..', 'build'),
+    //   serveRoot: '/',
+    // }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads'),
+      serveRoot: '/static',
+    }),
+
   ],
-  controllers: [AppController, MediaController ],
+  controllers: [AppController],
   providers: [AppService ],
 })
 export class AppModule {

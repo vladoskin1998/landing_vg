@@ -28,7 +28,6 @@ export const ABOUT_TEXT = [
     "TV show “SuperIntuition” in Kiev, Ukraine.",
 ]
 
-
 export const CLASSES_TEXT = [
     "Coach in Raw Art Summer School, Kiev, Ukraine in 2021.",
     "Coach in Flash Pole Dance Studio in Kiev, Ukraine in 2020",
@@ -37,3 +36,7 @@ export const CLASSES_TEXT = [
     "Inshi. New circus in Kiev, Ukraine in 2021.",
 ]
 
+export const HREF =
+    window.location.hostname === "localhost"
+        ? "http://localhost:5001/"
+        : window.location.href

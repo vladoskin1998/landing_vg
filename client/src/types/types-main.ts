@@ -11,3 +11,21 @@ export type DeviceType = "pc" | "mobile" | "tablet"
 export type DecodedToken = {
     exp: number
 }
+
+
+export enum MediaEnumFile{
+    VIDEO = 'video',
+    PHOTO = 'photo'
+}  
+
+export type MediaTypeFile = MediaEnumFile.PHOTO | MediaEnumFile.VIDEO
+
+export type FolderProp = {
+    title: string;
+    filenames: string[];
+    tag: MediaTypeFile;
+}   
+
+export interface BDFoledrsList extends FolderProp {
+    id: string | number
+}
