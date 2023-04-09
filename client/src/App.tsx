@@ -1,13 +1,12 @@
 import { Main } from "./components/main-page/main"
 import { Route, Routes } from 'react-router-dom';
 import { NoMatch } from "./components/no-match/noMatch";
-import React, { Suspense, useEffect, useRef, useState } from "react";
+import React, { Suspense, useRef } from "react";
 import { Loader } from "./components/loader/loader";
 import { ContextProvider } from './context/context'
 import { Login } from "./components/admin/login";
-const PhotoList = React.lazy(() => import('./components/media-list/photoList'));
-const VideoList = React.lazy(() => import('./components/media-list/videoList'));
-const WraperSlick = React.lazy(() => import("./components/media-list/wraperSlick"));
+const MediaList = React.lazy(() => import('./components/media-list/mediaList'));
+const SlickMedia = React.lazy(() => import("./components/slick-media/slickMedia"));
 
 function App() {
 
@@ -20,12 +19,12 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Main />} />
                         <Route path="/photo-list/:setId">
-                            <Route path="photo/:current" element={<WraperSlick />} />
-                            <Route path="" element={<PhotoList />} />
+                            <Route path="photo/:current" element={<SlickMedia />} />
+                            <Route path="" element={<MediaList />} />
                         </Route>
                         <Route path="/video-list/:setId">
-                            <Route path="video/:current" element={<WraperSlick />} />
-                            <Route path="" element={<VideoList />} />
+                            <Route path="video/:current" element={<SlickMedia />} />
+                            <Route path="" element={<MediaList />} />
                         </Route>
                         <Route path="*" element={<NoMatch />} />
                     </Routes>

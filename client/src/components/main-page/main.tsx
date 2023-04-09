@@ -3,7 +3,8 @@ import { Loader } from "../loader/loader";
 import { Footer } from "./footer/footer";
 import { animateScroll as scroll, } from 'react-scroll'
 import { ScrollButton } from "../../svg/scrollButton";
-const Header = lazy(() => import("./header/header"));
+import Header from "./header/header";
+
 const About = lazy(() => import("./about/about"));
 const Photo = lazy(() => import("./media/photo"));
 const Video = lazy(() => import("./media/video"));

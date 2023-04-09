@@ -1,21 +1,51 @@
 import React, { createContext, useState, useRef, useEffect, ReactNode, RefObject } from 'react';
-import { DecodedToken, DeviceType } from '../types/types-main';
+import { BDFoledrsList, DecodedToken, DeviceType, MediaDataType, MediaEnumFile } from '../types/types-main';
 import jwt_decode from "jwt-decode";
+import { $api } from "../api/api"
 
 const AppContext = createContext<{
   device: DeviceType,
   isAuth: string,
-  setIsAuth: (a: string) => void
+  setIsAuth: (a: string) => void,
+  image: MediaDataType[],
+  video: MediaDataType[]
 }>({
   device: "pc",
   isAuth: localStorage.getItem("token") || "",
   setIsAuth: () => { },
+  image: [],
+  video: [],
 });
 
 const ContextProvider = ({ children, refApp }: { children: ReactNode, refApp: RefObject<HTMLDivElement> }) => {
 
   const [device, setDevice] = useState<DeviceType>("pc")
   const [isAuth, setIsAuth] = useState(localStorage.getItem("token") || "")
+
+  const [image, setImage] = useState<MediaDataType[]>([])
+  const [video, setVideo] = useState<MediaDataType[]>([])
+
+  useEffect(() => {
+    $api.post('media/get-folders', { tag: MediaEnumFile.VIDEO })
+      .then(res => {
+        setVideo(
+          res.data.map((it: BDFoledrsList) => ({ src: it?.filenames, label: it?.title, folderId: it?._id }))
+        )
+        console.log(res.data);
+
+      })
+    $api.post('media/get-folders', { tag: MediaEnumFile.PHOTO })
+      .then(res => {
+        setImage(
+          res.data.map((it: BDFoledrsList) => ({ src: it?.filenames, label: it?.title, folderId: it?._id }))
+        )
+        console.log(res.data);
+
+      })
+  }, [])
+
+
+
 
   useEffect(() => {
 
@@ -45,11 +75,11 @@ const ContextProvider = ({ children, refApp }: { children: ReactNode, refApp: Re
 
 
   useEffect(() => {
-    const token:string | null = localStorage.getItem("token");
-    if(token){
+    const token: string | null = localStorage.getItem("token");
+    if (token) {
       const decodedToken: DecodedToken = jwt_decode(token);
-      console.log("decodedToken",decodedToken);
-      
+      console.log("decodedToken", decodedToken);
+
       const currentTime = Date.now() / 1000;
       if (decodedToken.exp < currentTime) {
         setIsAuth("");
@@ -63,6 +93,8 @@ const ContextProvider = ({ children, refApp }: { children: ReactNode, refApp: Re
       device,
       isAuth,
       setIsAuth,
+      image,
+      video,
     }
   }>
     {children}

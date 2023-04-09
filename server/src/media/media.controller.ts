@@ -48,8 +48,10 @@ export class MediaController {
   @Post()
   async addItem() {}
 
-  @Post()
-  async deleteFolder() {}
+  @Post('delete-folder')
+  async deleteFolder(@Body() {id}: {id:string}) {
+    return await this.mediaService.deleteFolder(id)
+  }
 
   @Post()
   async deleteItem() {}

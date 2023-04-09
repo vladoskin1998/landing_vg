@@ -72,6 +72,7 @@
             line-height: 29px;
             max-width: 140px;
             text-align: center;
+            z-index: 3;
         }
         &-bg {
             cursor: pointer;
@@ -85,6 +86,7 @@
             align-items: center;
             background: rgba(0, 0, 0, 0.642);
             opacity: 0;
+            z-index: 3;
             &_but {
                 line-height: 20px;
                 text-transform: uppercase;
@@ -99,21 +101,36 @@
             .media__item-text {
                 transition: opacity 0.5s ease;
                 opacity: 0;
+                z-index: 3;
             }
             .media__item-bg {
                 opacity: 1;
                 transition: opacity 1.3s ease;
+                z-index: 3;
             }
         }
     }
 }
 
-.video {
-    background-image: url("../../../public/images/about_bg.jpg");
-    .title__links {
-        color: $color_white;
+.media {
+    video{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    &.video {
+        background-image: url("../../../public/images/about_bg.jpg");
+        .title__links {
+            color: $color_white;
+        }
     }
 }
+
+
 
 @media only screen and (max-width: 950px) {
     .media .title__links {

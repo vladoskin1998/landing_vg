@@ -2,13 +2,15 @@ import { Menu } from "./menu"
 import { Logo } from "../../../svg/logo"
 import { HeaderList } from "./headerList"
 import { SlickHeader } from "./slickHeader"
-import { useContext, useState, useEffect } from "react"
+import { useContext, useState, useEffect, lazy } from "react"
 import { AppContext } from "../../../context/context"
-import { AboutVideo } from "../about/about-video"
 import { Burger } from '../../../svg/burger'
 import { MenuBurger } from "./menuBurger"
 import { HeaderButton } from "./headerButton"
 import { HEADER_TEXT as textList } from "../../../utils/const"
+
+
+const AboutVideo = lazy(() => import("./../about/about-video"));
 
 const Header = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
 

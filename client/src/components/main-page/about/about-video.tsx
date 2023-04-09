@@ -10,3 +10,5 @@ export const AboutVideo = () => {
         <source src="./Videos/about.mp4" type="video/mp4" />
     </video>
 }
+
+export default AboutVideo

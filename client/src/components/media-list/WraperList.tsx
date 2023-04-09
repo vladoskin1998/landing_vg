@@ -1,65 +1,38 @@
-import { ReactElement } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { LeftLine } from "../../svg/leftLine";
-import { randList } from "../main-page/media/randList";
-import { useLocation } from 'react-router-dom';
-import { RightChevron } from "../../svg/rightChevron";
+import { useNavigate, useParams ,useLocation} from "react-router-dom";
+import { randList } from "../../utils/randList";
 import { Outlet } from "react-router-dom";
 import { useContext } from "react"
 import { AppContext } from "../../context/context"
+import { HREF } from "../../utils/const";
+import { MediaEnumFile, MediaTypeFile, MediaTypeListFoo } from "../../types/types-main"
+import { MediaNavTitle } from "./mediaNavTitle";
 
-const title = (key: string): { title: string, buttonTitle: ReactElement | string } => {
-    switch (key) {
-        case "photo-list":
-            return { title: "photo", buttonTitle: <>open full <br /> size</> }
-        case "video-list":
-            return { title: "video", buttonTitle: "play" }
-        default:
-            return { title: 'not found', buttonTitle: 'not found' }
-
-    }
-}
 
 export const WraperList = <T extends { src: string },>({
     arr,
+    label,
+    mediaTypesFoo
 }: {
-    arr: T[];
+    arr:T[],
+    label: string,
+    mediaTypesFoo: MediaTypeListFoo
 }) => {
 
     let { setId } = useParams();
     const navigate = useNavigate()
     const location = useLocation();
-    const path = title(location.pathname.split('/')[1]);
+
     const { device, isAuth } = useContext(AppContext)
+    const toSlick = (id: string | number) => navigate(`/${location.pathname.split('/')[1]}/${setId}/${mediaTypesFoo.title}/${id}`)
 
-    const exit = () => {
-        navigate(-1)
-    }
-
-    const toSlick = (
-        photoId: string | number
-    ) => {
-        console.log("`/${location.pathname.split('/')[1]}/${setId}/${path.title}/1` -->", `/${location.pathname.split('/')[1]}/${setId}/${path.title}/1`);
-
-        navigate(`/${location.pathname.split('/')[1]}/${setId}/${path.title}/1`)
-    }
 
     return <div className="media__list content">
         <Outlet />
         <div className="media">
             {
-                isAuth && <button className="media--add">Add files</button> 
+                isAuth && <button className="media--add">Add files</button>
             }
-
-            <h4 className="title__links" onClick={exit}>
-                <div><LeftLine /></div>
-                back to {path.title}
-            </h4>
-            <div className="media__list-subtitle">
-                <h5>{path.title}</h5>
-                <RightChevron />
-                <h5>{setId}</h5>
-            </div>
+            <MediaNavTitle  label={label} title={mediaTypesFoo.title}/>
             <div className="media__list">
 
                 {randList(arr, device).map((arrItem: T[], index: number) => (
@@ -68,10 +41,20 @@ export const WraperList = <T extends { src: string },>({
                             } media__itemline`}
                     >
                         {arrItem.map((item, id) => (
-                            <div style={{ backgroundImage: item.src }} className="media__item" >
+                            <div
+                                style={{ backgroundImage: mediaTypesFoo.tag === MediaEnumFile.VIDEO ? "none" : `url(${HREF}static/${item.src})` }}
+                                className="media__item about__born-image"
+                            >
+                                {
+                                    mediaTypesFoo.tag === MediaEnumFile.VIDEO
+                                        ? <video controls={false}>
+                                            <source src={`${HREF}static/${item.src}`} type="video/mp4" />
+                                        </video>
+                                        : <></>
+                                }
                                 <button className="media__item--delete">Delete</button>
-                                <div className="media__item-bg" onClick={() => toSlick("someid--->" + id)}>
-                                    <button className="media__item-bg_but"> {path.buttonTitle}</button>
+                                <div className="media__item-bg" onClick={() => toSlick(id)}>
+                                    <button className="media__item-bg_but"> {mediaTypesFoo.buttonTitle}</button>
                                 </div>
                             </div>
                         ))}

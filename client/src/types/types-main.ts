@@ -1,5 +1,7 @@
+import { ReactElement } from "react"
+
 export type MediaDataType = {
-    src: string
+    src: string[]
     label: string
     folderId: number | string
 }
@@ -27,5 +29,10 @@ export type FolderProp = {
 }   
 
 export interface BDFoledrsList extends FolderProp {
-    id: string | number
+    _id: string | number
 }
+
+export type MediaTypeListFoo = {
+    title: string, buttonTitle: ReactElement | string, tag: MediaTypeFile 
+}
+

@@ -1,4 +1,4 @@
-import { DeviceType } from "../../../types/types-main"
+import { DeviceType } from "./../types/types-main"
 
 export const randList = <T>(arr: T[], device:DeviceType):Array<T[]> => {
 
