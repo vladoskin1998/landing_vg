@@ -9,4 +9,5 @@ export type FolderProp = {
     title: string;
     filenames: string[];
     tag: MediaTypeFile;
+    bgfiles: string;
 }   

@@ -7,6 +7,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Media, MediaSchema } from './media.schema';
 import { v4 as uuidv4 } from 'uuid';
 import * as mime from 'mime-types';
+import { JwtAuthGuard } from '../auth/auth.guard';
+import { AuthModule } from '../auth/auth.module';
+
 
 @Module({
   imports: [
@@ -27,8 +30,10 @@ import * as mime from 'mime-types';
         cb(null, true);
       },
     }),
+    AuthModule,
+ 
   ],
   controllers: [MediaController],
-  providers: [MediaService],
+  providers: [MediaService,JwtAuthGuard],
 })
 export class MediaModule {}

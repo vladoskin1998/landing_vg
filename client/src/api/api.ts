@@ -2,8 +2,6 @@ import axios from "axios"
 import { HREF  } from "../utils/const"
 const href = HREF+ 'api/'
 
-
-
 export const $authApi = axios.create({
     baseURL: href + 'auth/',
 })

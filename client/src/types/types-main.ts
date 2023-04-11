@@ -3,7 +3,8 @@ import { ReactElement } from "react"
 export type MediaDataType = {
     src: string[]
     label: string
-    folderId: number | string
+    folderId: number | string,
+    bgfiles: string;
 }
 
 export type PhotoDataType = { src: string; photoId: number | string }
@@ -26,10 +27,13 @@ export type FolderProp = {
     title: string;
     filenames: string[];
     tag: MediaTypeFile;
+    bgfiles: string;
+    
 }   
 
 export interface BDFoledrsList extends FolderProp {
-    _id: string | number
+    _id: string | number;
+   
 }
 
 export type MediaTypeListFoo = {

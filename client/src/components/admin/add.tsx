@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from "../../context/context"
 import { $api } from "../../api/api";
 import { MediaEnumFile } from "../../types/types-main";
-
+import { AxiosError } from 'axios';
 const dataUpload = (key: string): { format: string, tag: MediaEnumFile.PHOTO | MediaEnumFile.VIDEO } => {
     switch (key) {
         case "folder-photo":
@@ -16,13 +17,17 @@ export const AddNew = ({ close, link }: { close: () => void, link: string }) => 
 
     const [showList, setShowList] = useState(false)
     const [files, setFiles] = useState<File[]>([]);
-
+    const [bgFiles, setBgFiles] = useState<File[]>([]);
     const [folder, setFolder] = useState('')
-
+    const { setIsAuth } = useContext(AppContext)
     const { format, tag } = dataUpload(link)
 
     const handleFileUpload = (e: any) => {
         setFiles(e.target.files);
+    };
+
+    const handleBgFileUpload = (e: any) => {
+        setBgFiles(e.target.files);
     };
 
     const handleUpload = async () => {
@@ -30,8 +35,15 @@ export const AddNew = ({ close, link }: { close: () => void, link: string }) => 
         if (!folder) {
             return alert('Required field input folder')
         }
+        if (!bgFiles.length) {
+            return alert('Required field Background file')
+        }
+        if (!files.length) {
+            return alert('Required field Download file')
+        }
         formData.append('title', folder);
         formData.append('tag', tag);
+        formData.append('bgfiles', bgFiles[0]);
         for (let i = 0; i < files.length; i++) {
             formData.append(`files`, files[i]);
         }
@@ -39,11 +51,18 @@ export const AddNew = ({ close, link }: { close: () => void, link: string }) => 
             await $api.post('media/add-folder', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
+
+            alert("Success upload")
             close()
-        } catch (error) {
+        } catch (error: any) {
+            console.log(error);
+            if (error?.response?.status === 401) {
+                setIsAuth('')
+            }
             alert(error)
         }
     };
+
 
 
     const handleFileDelete = (i: number) => {
@@ -60,14 +79,27 @@ export const AddNew = ({ close, link }: { close: () => void, link: string }) => 
                 <input type="text" className="login__input" value={folder} onChange={e => setFolder(e.target.value)} />
                 <h4 className="login__text login__text-req">Required field</h4>
             </div>
+
+
+            <label htmlFor="file-bgupload" className="media--add add__label">
+                Background file
+            </label>
+            <input type="file" accept={'.jpg,.jpeg,.png'} id="file-bgupload" onChange={(e) => {
+                setShowList(true)
+                handleBgFileUpload(e)
+            }} />
+            <h4 className="login__text">{'.jpg,.jpeg,.png'}    <span className="login__text login__text-req">Required field</span></h4>
+
+
             <label htmlFor="file-upload" className="media--add add__label">
-                Download file
+                Download files
             </label>
             <input type="file" multiple accept={format} id="file-upload" onChange={(e) => {
                 setShowList(true)
                 handleFileUpload(e)
             }} />
-            <h4 className="login__text">{format}</h4>
+            <h4 className="login__text">{format} <span className="login__text login__text-req">Required field</span></h4>
+
             {showList && (
                 <>
                     <ul>

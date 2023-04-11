@@ -29,7 +29,7 @@ const ContextProvider = ({ children, refApp }: { children: ReactNode, refApp: Re
     $api.post('media/get-folders', { tag: MediaEnumFile.VIDEO })
       .then(res => {
         setVideo(
-          res.data.map((it: BDFoledrsList) => ({ src: it?.filenames, label: it?.title, folderId: it?._id }))
+          res.data.map((it: BDFoledrsList) => ({ src: it?.filenames, label: it?.title, folderId: it?._id, bgfiles: it?.bgfiles }))
         )
         console.log(res.data);
 
@@ -37,7 +37,7 @@ const ContextProvider = ({ children, refApp }: { children: ReactNode, refApp: Re
     $api.post('media/get-folders', { tag: MediaEnumFile.PHOTO })
       .then(res => {
         setImage(
-          res.data.map((it: BDFoledrsList) => ({ src: it?.filenames, label: it?.title, folderId: it?._id }))
+          res.data.map((it: BDFoledrsList) => ({ src: it?.filenames, label: it?.title, folderId: it?._id,bgfiles: it?.bgfiles }))
         )
         console.log(res.data);
 
@@ -48,7 +48,6 @@ const ContextProvider = ({ children, refApp }: { children: ReactNode, refApp: Re
 
 
   useEffect(() => {
-
     const handleResize = () => {
       if (refApp?.current?.offsetWidth !== undefined) {
         if (refApp?.current?.offsetWidth < 450) {

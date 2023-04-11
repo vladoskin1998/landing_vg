@@ -13,6 +13,9 @@ export class Media {
   filenames: string[];
 
   @Prop()
+  bgfiles: string;
+
+  @Prop()
   tag: MediaTypeFile;
 }
 

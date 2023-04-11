@@ -8,16 +8,6 @@ import { HREF } from "../../../utils/const"
 import { WraperButton } from "./wraperButton"
 import { wraperMediaListParams } from "../../../utils/componentParams"
 import { $api } from "../../../api/api"
-// const wraperMediaParams = (link: string) => {
-//     switch (link) {
-//         case "photo-list":
-//             return { title: "photo", tag: MediaEnumFile.PHOTO }
-//         case "video-list":
-//             return { title: "video", tag: MediaEnumFile.VIDEO }
-//         default:
-//             return { title: "photo", tag: MediaEnumFile.PHOTO }
-//     }
-// }
 
 export const WraperMedia = <T extends MediaDataType,>({
     arr,
@@ -29,15 +19,21 @@ export const WraperMedia = <T extends MediaDataType,>({
 
     const navigate = useNavigate()
     const mediaType = wraperMediaListParams(link)
-    const { device, isAuth } = useContext(AppContext)
+    const { device, isAuth, setIsAuth } = useContext(AppContext)
     const [opesAdd, setOpenAdd] = useState(false)
     const slideId = mediaType.title[0].toUpperCase() + mediaType.title.slice(1)
-    
-    const deleteFolder = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>,id:string | number) => {
+
+    const deleteFolder = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, id: string | number) => {
         e.stopPropagation()
         $api.post('media/delete-folder', { id })
             .then(res => {
-                console.log(res.data);
+                alert("Delete success, update sitec")
+            }).catch((error) => {
+                console.log(error);
+                if (error?.response?.status === 401) {
+                    setIsAuth('')
+                }
+                alert(error)
             })
     }
 
@@ -57,17 +53,10 @@ export const WraperMedia = <T extends MediaDataType,>({
             {!arr.length || randList(arr, device).map((arrItem: T[], index: number) => (
                 <div className={`media__itemline-${arrItem.length}-${index % 2 === 0 ? "p" : "n"} media__itemline`} key={'wraper-media' + index}>
                     {arrItem.map((item) => (
-                        <div style={{ backgroundImage: mediaType.tag === MediaEnumFile.VIDEO ? "none" : `url(${HREF}static/${item.src[0]})` }} className="media__item about__born-image"
-                            onClick={() => navigate(`/${link}/${item?.folderId}`)}>
+                        <div style={{ backgroundImage: `url(${HREF}static/${item.bgfiles})` }} className="media__item about__born-image"
+                            onClick={() => navigate(`/${link}/${item?.folderId}${mediaType.tag === MediaEnumFile.VIDEO ? "/video/0" : ""}`)}>
                             {
-                                isAuth && <button className="media__item--delete" onClick={(e) => deleteFolder(e,item?.folderId)}>Delete</button>
-                            }
-                            {
-                                mediaType.tag === MediaEnumFile.VIDEO
-                                    ? <video controls={false}>
-                                        <source src={`${HREF}static/${item.src[0]}`} type="video/mp4" />
-                                    </video>
-                                    : <></>
+                                isAuth && <button className="media__item--delete" onClick={(e) => deleteFolder(e, item?.folderId)}>Delete</button>
                             }
                             <WraperButton label={item?.label} text={<>view <br />all</>} />
                         </div>

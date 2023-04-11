@@ -40,6 +40,10 @@ export class AuthService {
     return { token };
   }
 
+  async findUserByToken(token:string){
+    return await this.authModel.findOne({token})
+  }
+
   async logout(createLogouthDto: CreateLogouthDto): Promise<void> {
     console.log('lloog');
 
