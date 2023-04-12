@@ -24,13 +24,13 @@ import { join } from 'path';
       }),
     }),
     MediaModule,
-    // ServeStaticModule.forRoot({
-    //   rootPath: join(__dirname, '..', 'build'),
-    //   serveRoot: '/',
-    // }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'client'),
+      serveRoot: '/',
+    }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads'),
-      serveRoot: '/static',
+      serveRoot: '/uploads',
     }),
 
   ],

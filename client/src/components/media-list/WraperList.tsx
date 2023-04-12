@@ -38,7 +38,7 @@ export const WraperList = <T extends { src: string },>({
                     >
                         {arrItem.map((item, id) => (
                             <div
-                                style={{ backgroundImage: `url(${HREF}static/${item.src})` }}
+                                style={{ backgroundImage: `url(${HREF}uploads/${item.src})` }}
                                 className="media__item about__born-image"
                             >
                                 <div className="media__item-bg" onClick={() => toSlick(id)}>

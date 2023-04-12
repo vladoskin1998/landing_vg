@@ -58,7 +58,7 @@ export const WraperMedia = <T extends MediaDataType,>({
             {!arr.length || randList(arr, device).map((arrItem: T[], index: number) => (
                 <div className={`media__itemline-${arrItem.length}-${index % 2 === 0 ? "p" : "n"} media__itemline`} key={'wraper-media' + index}>
                     {arrItem.map((item) => (
-                        <div style={{ backgroundImage: `url(${HREF}static/${item.bgfiles})` }} className="media__item about__born-image"
+                        <div style={{ backgroundImage: `url(${HREF}uploads/${item.bgfiles})` }} className="media__item about__born-image"
                             onClick={() => navigate(`/${link}/${item?.folderId}${mediaType.tag === MediaEnumFile.VIDEO ? "/video/0" : ""}`)}>
                             {
                                 isAuth && <button className="media__item--delete" onClick={(e) => deleteFolder(e, item?.folderId)}>Delete</button>

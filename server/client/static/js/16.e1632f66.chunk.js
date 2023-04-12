@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[16],{9016:function(e,n,t){t.r(n);var i=t(6316),u=t(2791),r=t(9682),s=t(184);n.default=function(){var e=(0,u.useContext)(r.I).video;return(0,s.jsx)(i.h,{arr:e,link:"video-list"})}}}]);
+//# sourceMappingURL=16.e1632f66.chunk.js.map

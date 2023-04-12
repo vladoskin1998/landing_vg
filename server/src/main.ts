@@ -16,6 +16,7 @@ async function bootstrap() {
     // credentials: true,
   });
   // создаем статический маршрут для обслуживания папки dist
+ 
   await app.listen(5001);
 }
 bootstrap();

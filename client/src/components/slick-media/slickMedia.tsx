@@ -47,9 +47,9 @@ export const SlickMedia = () => {
                 arr.map((item, index) => <div className="slick_cust__slide" key={index + "slick_cust__slid"}>
                     {mediaTypeUrl.tag === MediaEnumFile.VIDEO
                         ? <video controls={true} className="slick_cust__slide-video">
-                            <source src={`${HREF}static/${item}`} type="video/mp4" />
+                            <source src={`${HREF}uploads/${item}`} type="video/mp4" />
                         </video>
-                        : <div style={{ backgroundImage: `url(${HREF}static/${item})` }} className="slick_cust__slide-photo about__born-image"></div>
+                        : <div style={{ backgroundImage: `url(${HREF}uploads/${item})` }} className="slick_cust__slide-photo about__born-image"></div>
                     }
                 </div>)
             }

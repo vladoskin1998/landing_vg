@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[401],{2401:function(e,t,n){n.r(t);var u=n(2791),i=n(6316),r=n(9682),s=n(184);t.default=function(){var e=(0,u.useContext)(r.I).image;return(0,s.jsx)(i.h,{arr:e,link:"photo-list"})}}}]);
+//# sourceMappingURL=401.81231763.chunk.js.map

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[314],{2314:function(e,n,a){a.r(n),a.d(n,{ClassesPhoto:function(){return r}});var s=a(184),r=function(){return(0,s.jsx)(s.Fragment,{children:new Array(10).fill(1).map((function(e,n){return(0,s.jsx)("div",{className:"classes__area_p".concat(n+1," about__born-image")},n+"classes__area_p")}))})};n.default=r}}]);
+//# sourceMappingURL=314.1e818128.chunk.js.map

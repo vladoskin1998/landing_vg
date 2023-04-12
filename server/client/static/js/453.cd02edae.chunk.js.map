@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/453.cd02edae.chunk.js","mappings":"+JAAe,SAASA,IACpB,OAAOC,EAAAA,EAAAA,KAAA,OAAKC,UAAU,iBAC1B,C","sources":["components/main-page/header/headerPhoto.tsx"],"sourcesContent":["export default function HeaderPhoto(){\n    return <div className=\"header__photo\" />\n}"],"names":["HeaderPhoto","_jsx","className"],"sourceRoot":""}
