@@ -1,19 +1,21 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { $authApi } from "../../api/api";
 import { AppContext } from "../../context/context"
+
 export const Login = () => {
 
+    const modalRef = useRef<HTMLDivElement>(null);
     const [showModal, setShowModal] = useState(false);
     const [login, setLogin] = useState(process.env.REACT_APP_LOGIN || '')
     const [password, setPassword] = useState(process.env.REACT_APP_PASSWORD || '')
-    const { isAuth, setIsAuth } = useContext(AppContext)
+    const { isAuth, setIsAuth, device } = useContext(AppContext)
 
     useEffect(() => {
         let keysPressed: { [key: string]: boolean } = {};
 
         const downHandler = ({ key }: KeyboardEvent) => {
             keysPressed[key] = true;
-            if (keysPressed["q"] && keysPressed["m"] && keysPressed["f"]) {
+            if (keysPressed["q"] && keysPressed["m"] && keysPressed["f"] && device === 'pc') {
                 setShowModal(true);
             }
         };
@@ -31,7 +33,8 @@ export const Login = () => {
         };
     }, []);
 
-    const loginAuth = () => {
+    const loginAuth = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.stopPropagation()
         $authApi.post('login',
             { login, password }
         )
@@ -54,16 +57,49 @@ export const Login = () => {
                 setIsAuth("")
             }
         )
+            .catch(e =>
+                alert(e)
+            )
     }
 
+    const handlerLogin = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setLogin(e.target.value)
+    }
+
+
+    const handlerPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value)
+    }
+
+
+    useEffect(() => {
+        function handleClickOutside(event: any) {
+            if (modalRef.current && !modalRef?.current.contains(event.target as Node)) {
+                setShowModal(false);
+            }
+        }
+
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, [modalRef]);
+
+
     return (
-        <div>
+        <>
             {showModal && (
-                <div className="login">
-                    <h4 className="login__text">Login</h4>
-                    <input type="text" className="login__input" value={login} onChange={e => setLogin(e.target.value)} />
-                    <h4 className="login__text">Password</h4>
-                    <input type="password" className="login__input" value={password} onChange={e => setPassword(e.target.value)} />
+
+                <div className="login" ref={modalRef}>
+                    <div className="login_item">
+                        <h4 className="login__text">Login  {!!login || <span className="login__text login__text-req">Required field</span>}</h4>
+                        <input type="text" className="login__input" value={login} onChange={e => handlerLogin} />
+                    </div>
+                    <div className="login_item">
+                        <h4 className="login__text">Password {!!password || <span className="login__text login__text-req">Required field</span>}</h4>
+                        <input type="password" className="login__input" value={password} onChange={handlerPassword} />
+                    </div>
+
                     <div className="login__nav">
                         <button className="media__item--delete" onClick={() => setShowModal(false)}>
                             Cancel
@@ -71,6 +107,8 @@ export const Login = () => {
                         <button className="media--add" onClick={loginAuth}>Login</button>
                     </div>
                 </div>
+
+
             )}
             {
                 isAuth
@@ -80,6 +118,6 @@ export const Login = () => {
                     </div>
                     : <></>
             }
-        </div>
+        </>
     );
 }

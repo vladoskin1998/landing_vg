@@ -20,6 +20,10 @@ export enum MediaEnumFile{
     VIDEO = 'video',
     PHOTO = 'photo'
 }  
+export enum FormatMedia{
+    VIDEO = '.mp4',
+    PHOTO = '.jpg,.jpeg,.png'
+}  
 
 export type MediaTypeFile = MediaEnumFile.PHOTO | MediaEnumFile.VIDEO
 

@@ -6,3 +6,5 @@ export const ColaborationPhoto = () => {
         }
     </div>
 }
+
+export default ColaborationPhoto

@@ -5,6 +5,7 @@ import React, { Suspense, useRef } from "react";
 import { Loader } from "./components/loader/loader";
 import { ContextProvider } from './context/context'
 import { Login } from "./components/admin/login";
+
 const MediaList = React.lazy(() => import('./components/media-list/mediaList'));
 const SlickMedia = React.lazy(() => import("./components/slick-media/slickMedia"));
 

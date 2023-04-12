@@ -40,3 +40,5 @@ export const ColaborationVideo = () => {
     </div>
 </div>
 }
+
+export default ColaborationVideo

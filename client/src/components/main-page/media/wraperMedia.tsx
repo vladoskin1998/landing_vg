@@ -27,7 +27,7 @@ export const WraperMedia = <T extends MediaDataType,>({
         e.stopPropagation()
         $api.post('media/delete-folder', { id })
             .then(res => {
-                alert("Delete success, update sitec")
+                alert("Delete success, update site")
             }).catch((error) => {
                 console.log(error);
                 if (error?.response?.status === 401) {
@@ -35,13 +35,18 @@ export const WraperMedia = <T extends MediaDataType,>({
                 }
                 alert(error)
             })
-    }
+        }
+
+        const handlerOpenAdd = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+            e.stopPropagation()
+            setOpenAdd(true)
+        }
 
     return <div className={`media ${mediaType.title}`} id={slideId}>
         {
             isAuth
             && <>
-                <button className="media--add" onClick={() => setOpenAdd(true)}>Add Collection</button>
+                <button className="media--add" onClick={handlerOpenAdd}>Add Collection</button>
                 {opesAdd && <AddNew close={() => setOpenAdd(false)}
                     link={`folder-${mediaType.title}`}
                 />}
