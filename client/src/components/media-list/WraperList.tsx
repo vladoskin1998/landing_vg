@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import { useContext } from "react"
 import { AppContext } from "../../context/context"
 import { HREF } from "../../utils/const";
-import { MediaEnumFile, MediaTypeFile, MediaTypeListFoo } from "../../types/types-main"
+import { MediaTypeListFoo } from "../../types/types-main"
 import { MediaNavTitle } from "./mediaNavTitle";
 
 

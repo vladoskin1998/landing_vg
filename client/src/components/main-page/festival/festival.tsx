@@ -1,6 +1,11 @@
+import { lazy, Suspense } from "react";
+import { Loader } from "../../loader/loader";
+
+const FestivalPhotoList = lazy(() => import("./festivalPhotoList"));
+
 const Festival = () => {
 
-    return <>
+    return <Suspense fallback={<Loader />}>
         <div className="festival about__born-image" id="Festival & TV">
             <h4 className="title__links">Festival & TV</h4>
             <div className="festival__area">
@@ -13,18 +18,11 @@ const Festival = () => {
                     <p>Participant TV show “Superintuition” in Kiev, Ukraine in 2020</p>
                 </div>
                 <div className="festival__photo about__born-image"></div>
-                <div className="festival__area-list">
-                    <div className="festival__area-list_1 about__born-image" ></div>
-                    <div className="festival__area-list_2 about__born-image"></div>
-                    <div className="festival__area-list_3 about__born-image"></div>
-                    <div className="festival__area-list_4 about__born-image"></div>
-                    <div className="festival__area-list_5 about__born-image"></div>
-                    <div className="festival__area-list_6 about__born-image"></div>
-                </div>
+                <FestivalPhotoList />
             </div>
         </div>
         <div className="festival__bg-list"></div>
-    </>
+    </Suspense>
 }
 
 export default Festival

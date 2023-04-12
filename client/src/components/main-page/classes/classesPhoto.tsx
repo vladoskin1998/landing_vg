@@ -7,3 +7,5 @@ export const ClassesPhoto = () => {
         }
     </>
 }
+
+export default ClassesPhoto

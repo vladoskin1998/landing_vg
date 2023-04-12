@@ -1,3 +1,3 @@
 export const NoMatch = () => {
-    return <>404 NO MATCTH</>
+    return <h1>404 NO MATCTH</h1>
 }

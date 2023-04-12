@@ -1,4 +1,4 @@
-import { MediaEnumFile, MediaTypeFile } from "../types/types-main"
+import { MediaEnumFile, MediaTypeFile, FormatMedia } from "../types/types-main"
 
 export const wraperMediaParams = (link: string) => {
     switch (link) {
@@ -44,5 +44,17 @@ export const wraperMediaListSlick = (key: string): { tag: MediaTypeFile } => {
             return { tag: MediaEnumFile.VIDEO }
         default:
             return { tag: MediaEnumFile.PHOTO }
+    }
+}
+
+
+export const dataUpload = (key: string): { format: FormatMedia, tag: MediaEnumFile.PHOTO | MediaEnumFile.VIDEO } => {
+    switch (key) {
+        case "folder-photo":
+            return { format: FormatMedia.PHOTO, tag: MediaEnumFile.PHOTO }
+        case "folder-video":
+            return { format: FormatMedia.VIDEO, tag: MediaEnumFile.VIDEO }
+        default:
+            return { format: FormatMedia.PHOTO, tag: MediaEnumFile.PHOTO }
     }
 }
