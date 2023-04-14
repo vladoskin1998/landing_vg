@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Loader } from "../../loader/loader";
+import '../../../style/main-page/festival.scss';
 
 const FestivalPhotoList = lazy(() => import("./festivalPhotoList"));
 

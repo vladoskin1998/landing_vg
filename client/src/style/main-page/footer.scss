@@ -1,9 +1,10 @@
+@import "./../variables.scss";
 .footer {
     padding-top: 25px;
     padding-bottom: 94px;
     height: max-content;
     color: $color_white;
-    background-image: url("../../../public/images/about_bg.jpg");
+    background-color: $color_black1;
     &__vg {
         padding-top: 95px;
         &-subtitle {
@@ -62,7 +63,6 @@
 @media only screen and (max-width: 950px) {
     .footer {
         padding-bottom: 80px;
-
         &__massenger {
             grid-template-columns: auto 1fr;
             grid-template-areas:

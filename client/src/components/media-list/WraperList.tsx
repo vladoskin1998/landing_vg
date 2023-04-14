@@ -35,9 +35,11 @@ export const WraperList = <T extends { src: string },>({
                     <div
                         className={`media__itemline-${arrItem.length}-${index % 2 === 0 ? "p" : "n"
                             } media__itemline`}
+                        key={'media-list-wraper' + index}    
                     >
                         {arrItem.map((item, id) => (
                             <div
+                                key={'media-list-wraper' + index}    
                                 style={{ backgroundImage: `url(${HREF}uploads/${item.src})` }}
                                 className="media__item about__born-image"
                             >

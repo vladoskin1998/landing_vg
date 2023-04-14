@@ -9,6 +9,7 @@ import { MenuBurger } from "./menuBurger"
 import { HeaderButton } from "./headerButton"
 import { HEADER_TEXT as textList } from "../../../utils/const"
 import { Loader } from "../../loader/loader";
+import '../../../style/main-page/header.scss';
 
 const AboutVideo = lazy(() => import("./../about/about-video"));
 const HeaderPhoto = lazy(() => import("./headerPhoto"));

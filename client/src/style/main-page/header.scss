@@ -1,3 +1,4 @@
+@import "./../variables.scss";
 .header {
     height: 810px;
     color: $color_white;
@@ -143,21 +144,6 @@
     }
 }
 
-// @media only screen and (max-width: 1150px) {
-//     .header__title {
-//         font-size: 122px;
-//     }
-//     .header__subtitle {
-//         font-size: 92px;
-//     }
-//     .header__undertitle {
-//         font-size: 28px;
-//         margin-left: 335px;
-//     }
-//     .header__list {
-//         max-width: 33vw;
-//     }
-// }
 
 @media only screen and (max-width: 950px) {
     .header {

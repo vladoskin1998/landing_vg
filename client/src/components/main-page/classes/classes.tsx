@@ -2,6 +2,7 @@ import { HeaderList } from "../header/headerList"
 import { CLASSES_TEXT as textList} from '../../../utils/const'
 import { lazy,Suspense } from "react"
 import { Loader } from "../../loader/loader";
+import '../../../style/main-page/classes.scss';
 
 const ClassesPhoto = lazy(() => import("./classesPhoto"));
 

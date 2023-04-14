@@ -2,6 +2,8 @@ import { HeaderList } from "../header/headerList"
 import { lazy, Suspense } from "react";
 import { ABOUT_TEXT as textList } from "../../../utils/const"
 import { Loader } from "../../loader/loader";
+import '../../../style/main-page/about.scss';
+
 const AboutVideo = lazy(() => import("./about-video"));
 
 const About = () => {

@@ -1,6 +1,6 @@
 import { Insta, FB, TikTok } from '../../../svg/massenger'
 import { RotLine } from '../../../svg/rotLine'
-
+import '../../../style/main-page/footer.scss';
 
 export const Footer = () => {
     return <div className="footer" id="Contacts">

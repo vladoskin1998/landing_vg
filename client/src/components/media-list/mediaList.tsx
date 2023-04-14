@@ -4,7 +4,7 @@ import { useContext, useMemo } from "react"
 import { AppContext } from "../../context/context"
 import { MediaEnumFile } from "../../types/types-main"
 import { wraperMediaListParams } from "../../utils/componentParams";
-
+import '../../style/media-list/media-list.scss';
 
 export const MediaList = () => {
 
