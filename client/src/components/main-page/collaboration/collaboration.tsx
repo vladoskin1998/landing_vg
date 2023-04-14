@@ -1,23 +1,14 @@
-import { useRef, useEffect, useState, lazy, Suspense, useContext } from "react"
+import { useEffect, useState, lazy, Suspense, } from "react"
 import { BottomLine } from "../../../svg/bottomLine";
 import { Loader } from "../../loader/loader";
 import '../../../style/main-page/collaboration.scss';
-import { AppContext } from "../../../context/context"
+
 
 const ColaborationPhoto = lazy(() => import("./colaborationPhoto"));
 const ColaborationVideo = lazy(() => import("./colaborationVideo"));
 
 const Collaboration = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
 
-    const { device } = useContext(AppContext)
-    const ref = useRef<HTMLDivElement>(null)
-    const [w, setW] = useState(200)
-
-    useEffect(() => {
-        if (ref?.current?.offsetWidth !== undefined) {
-            setW(2.9 * (ref?.current?.offsetWidth / 8))
-        }
-    }, [ref, device]);
 
     return (
         <Suspense fallback={<Loader />}>
@@ -25,7 +16,7 @@ const Collaboration = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
                 <div className="collaboration__area1 about__born-image">
                     <h4 className="title__links">Collaboration</h4>
                     <h3 className="collaboration__area1-subtitle">Open for</h3>
-                    <div className="collaboration__area1-interesting" ref={ref}>
+                    <div className="collaboration__area1-interesting">
                         {
                             "interes".split('').map((e, index) => <div key={"collaboration__area1-interesting" + index}>{e}</div>)
                         }
@@ -41,7 +32,7 @@ const Collaboration = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
                     </h5>
                 </div>
                 <div className="collaboration__area2">
-                    <div className="collaboration__area2-interesting" style={{ width: `${w}px` }}>
+                    <div className="collaboration__area2-interesting" >
                         <div>i
                             <h3 className="collaboration__area1-subtitle collaboration__area2-bottitle">and video! </h3>
                         </div>

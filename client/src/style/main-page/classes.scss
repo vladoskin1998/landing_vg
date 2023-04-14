@@ -4,6 +4,8 @@
     color: $color_white;
     &__area {
         display: grid;
+        column-gap: 1px;
+        row-gap: 1px;
         grid-template-rows: repeat(4, 323px);
         grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
         grid-template-areas:

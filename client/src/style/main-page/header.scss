@@ -5,7 +5,7 @@
     position: relative;
     padding-top: 30px;
     &__photo {
-        height: 824px;
+        height: 100%;
         width: 280px;
         position: absolute;
         top: 0;
@@ -26,7 +26,7 @@
             display: flex;
             width: max-content;
             width: 65vw;
-            max-width: 950px;
+            max-width: 850px;
             justify-content: space-between;
             &-item {
                 padding: 0 10px;
@@ -49,10 +49,11 @@
     &__title {
         font-family: $font-royal-castle-regular;
         font-size: 148px;
-        line-height: 1;
+        line-height: 0.9;
         text-transform: uppercase;
     }
     &__subtitle {
+        padding-top: 5px;
         font-family: $font-royal-castle-regular;
         font-size: 112px;
         line-height: 0.6;

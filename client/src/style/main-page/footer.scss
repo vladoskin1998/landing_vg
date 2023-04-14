@@ -1,5 +1,6 @@
 @import "./../variables.scss";
 .footer {
+    
     padding-top: 25px;
     padding-bottom: 94px;
     height: max-content;
@@ -27,6 +28,7 @@
         div:nth-child(3) {
             grid-area: b-3;
         }
+
         &-title {
             font-family: $font-proxima-nova-bold;
             font-size: 14px;
@@ -40,6 +42,21 @@
             padding-top: 7px;
             display: flex;
             column-gap: 16px;
+            & a{
+                &:hover {
+                    color: $color_purpure1;
+                    transition: color 0.5s ease;
+                    & svg {
+                        // fill: $color_purpure1;
+                        & path {
+                            
+                            stroke: $color_purpure1;
+                            transition: stroke 0.5s ease;
+                        }
+                    }
+                }
+            }
+            
         }
         &-dev {
             grid-area: b-4;
@@ -75,14 +92,12 @@
 }
 
 @media only screen and (max-width: 450px) {
-    .footer{
-        &__vg{
+    .footer {
+        &__vg {
             padding-top: 70px;
         }
-        &__massenger{
+        &__massenger {
             padding-top: 90px;
         }
     }
-    
 }
-
