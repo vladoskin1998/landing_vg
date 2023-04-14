@@ -1,23 +1,23 @@
-import { useRef, useEffect, useState, lazy, Suspense } from "react"
+import { useRef, useEffect, useState, lazy, Suspense, useContext } from "react"
 import { BottomLine } from "../../../svg/bottomLine";
 import { Loader } from "../../loader/loader";
 import '../../../style/main-page/collaboration.scss';
+import { AppContext } from "../../../context/context"
 
 const ColaborationPhoto = lazy(() => import("./colaborationPhoto"));
 const ColaborationVideo = lazy(() => import("./colaborationVideo"));
 
 const Collaboration = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
 
+    const { device } = useContext(AppContext)
     const ref = useRef<HTMLDivElement>(null)
-    const [w, setW] = useState(500)
+    const [w, setW] = useState(200)
 
     useEffect(() => {
         if (ref?.current?.offsetWidth !== undefined) {
             setW(2.9 * (ref?.current?.offsetWidth / 8))
         }
-
-        console.log("width", ref?.current?.offsetWidth);
-    }, []);
+    }, [ref, device]);
 
     return (
         <Suspense fallback={<Loader />}>
@@ -55,7 +55,6 @@ const Collaboration = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
                 </div>
             </div>
         </Suspense>)
-
 }
 
 export default Collaboration

@@ -48,7 +48,7 @@
             margin-left: 0.5vw;
             padding-top: 60px;
             row-gap: 1px;
-            columns: 1px;
+            column-gap: 1px;
             padding-right: 10px;
             grid-template-rows: 260px 279px 220px;
             grid-template-areas:
@@ -121,6 +121,7 @@
             font-family: $font-royal-castle-regular;
             font-size: calc(((100vw * 182px) / 1440px));
             text-transform: uppercase;
+            max-width: 300px;
             & div:first-child {
                 position: relative;
             }
@@ -144,6 +145,8 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             grid-template-rows: 448px 445px;
+            column-gap: 1px;
+            row-gap: 1px;
             grid-template-areas:
                 "v-1 v-1 v-1 v-1 v-2 v-2 v-2"
                 "v-3 v-3 v-3 v-4 v-4 v-4 v-4";
