@@ -3,12 +3,10 @@ import {Logo} from '../../../svg/logo';
 import {CloseSlick} from '../../../svg/closeSlick';
 
 export const MenuBurger = ({children, close, open}: {children: ReactNode; close: () => void; open: boolean}) => {
-	if (!open) {
-		return <></>;
-	}
 
-	return <div className='header__burger-menu_wrap' onClick={close}>
-		<div className='header__burger-menu'>
+
+	return <div className={`header__burger-menu_wrap ${open ? 'header__burger-menu_wrap-show' : ''}`} onClick={close}>
+		<div className={`header__burger-menu ${open ? 'header__burger-menu-show' : ''}`}>
 			{children}
 			<div className='header__burger-menu_logo'>
 				<Logo />
@@ -19,3 +17,6 @@ export const MenuBurger = ({children, close, open}: {children: ReactNode; close:
 		</div>
 	</div>;
 };
+
+
+

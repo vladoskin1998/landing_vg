@@ -66,7 +66,7 @@ const ContextProvider = ({children, refApp}: {children: ReactNode; refApp: RefOb
 	}, [refApp?.current?.offsetWidth]);
 
 	useEffect(() => {
-		const token: string | undefined = localStorage.getItem('token');
+		const token: string | null = localStorage.getItem('token');
 		if (token) {
 			const decodedToken: DecodedToken = jwt_decode(token);
 			console.log('decodedToken', decodedToken);
