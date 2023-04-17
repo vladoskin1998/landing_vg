@@ -10,7 +10,6 @@ import * as mime from 'mime-types';
 import { JwtAuthGuard } from '../auth/auth.guard';
 import { AuthModule } from '../auth/auth.module';
 
-
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Media.name, schema: MediaSchema }]),
@@ -31,9 +30,8 @@ import { AuthModule } from '../auth/auth.module';
       },
     }),
     AuthModule,
- 
   ],
   controllers: [MediaController],
-  providers: [MediaService,JwtAuthGuard],
+  providers: [MediaService, JwtAuthGuard],
 })
 export class MediaModule {}

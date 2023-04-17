@@ -121,7 +121,7 @@
             font-family: $font-royal-castle-regular;
             font-size: calc(((100vw * 182px) / 1440px));
             text-transform: uppercase;
-            max-width: 300px;
+            width: min-content;
             & div:first-child {
                 position: relative;
             }

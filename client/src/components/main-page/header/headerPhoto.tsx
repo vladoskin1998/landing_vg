@@ -1,3 +1,3 @@
-export default function HeaderPhoto(){
-    return <div className="header__photo" />
+export default function HeaderPhoto() {
+	return <div className='header__photo' />;
 }

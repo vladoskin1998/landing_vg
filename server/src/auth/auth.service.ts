@@ -32,7 +32,7 @@ export class AuthService {
 
     const token = await this.jwtService.signAsync(
       { login },
-      { secret: this.configService.get('JWT_SECRET') ,expiresIn: '1d' },
+      { secret: this.configService.get('JWT_SECRET'), expiresIn: '1d' },
     );
 
     await user.updateOne({ token, lastEntered: new Date() });
@@ -40,8 +40,8 @@ export class AuthService {
     return { token };
   }
 
-  async findUserByToken(token:string){
-    return await this.authModel.findOne({token})
+  async findUserByToken(token: string) {
+    return await this.authModel.findOne({ token });
   }
 
   async logout(createLogouthDto: CreateLogouthDto): Promise<void> {

@@ -4,7 +4,6 @@ import {
   Post,
   HttpException,
   HttpStatus,
-  Delete,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto, CreateLogouthDto } from './auth.dto';

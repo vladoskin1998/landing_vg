@@ -1,9 +1,4 @@
-import {
-  HttpCode,
-  HttpException,
-  HttpStatus,
-  Injectable,
-} from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { Media } from './media.schema';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
@@ -12,23 +7,22 @@ import { FolderProp } from '../types/types';
 import * as fs from 'fs';
 import * as path from 'path';
 
-
 @Injectable()
 export class MediaService {
   constructor(@InjectModel(Media.name) private mediaModel: Model<Media>) {}
 
   async addFolder({ title, filenames, tag, bgfiles }: FolderProp) {
-    
     return await this.mediaModel.create({ title, filenames, tag, bgfiles });
   }
 
-  
   async getFolders(tag: MediaTypeFile) {
     return await this.mediaModel.find({ tag });
   }
 
   async deleteFolder(id: string) {
-    const { filenames, bgfiles } = await this.mediaModel.findOneAndDelete({ _id: id });
+    const { filenames, bgfiles } = await this.mediaModel.findOneAndDelete({
+      _id: id,
+    });
     await this.deleteFiles([...filenames, bgfiles]);
     return { message: 'Folder is deleted' };
   }

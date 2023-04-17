@@ -5,18 +5,10 @@ import {
   UploadedFiles,
   UseInterceptors,
   UseGuards,
-  Get,
 } from '@nestjs/common';
-import {
-  FilesInterceptor,
-  FileInterceptor,
-  FileFieldsInterceptor,
-} from '@nestjs/platform-express';
-import { v4 as uuidv4 } from 'uuid';
-import * as fs from 'fs';
-import * as path from 'path';
+import { FileFieldsInterceptor } from '@nestjs/platform-express';
 import { MediaService } from './media.service';
-import { MediaTypeFile, MediaEnumFile } from '../types/types';
+import { MediaTypeFile } from '../types/types';
 import { JwtAuthGuard } from '../auth/auth.guard';
 
 @Controller('media')
@@ -46,7 +38,7 @@ export class MediaController {
     const { title, tag }: { title: string; tag: MediaTypeFile } = body;
     const filenames: string[] = binary.files.map((file) => file.filename);
     const bgfiles = binary.bgfiles[0].filename;
-  
+
     await this.mediaService.addFolder({
       title,
       filenames,

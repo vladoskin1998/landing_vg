@@ -80,8 +80,10 @@
         line-height: 29px;
         padding-top: 18px;
         z-index: 1;
+        
         & > div {
             font-family: $font-proxima-nova-bold;
+            padding-bottom: 4px;
         }
         &::after {
             content: "";
@@ -187,8 +189,6 @@
             font-size: 16px;
             line-height: 19px;
             &-wrap {
-           
-
                 display: flex;
                 justify-content: center;
             }

@@ -1,6 +1,4 @@
-export const HeaderButton = ({ scrollToBottom }: { scrollToBottom: () => void }) => {
-    return <button className="header__button" onClick={scrollToBottom}>
+export const HeaderButton = ({scrollToBottom}: {scrollToBottom: () => void}) => <button className='header__button' onClick={scrollToBottom}>
         Contact
-        <div >me</div>
-    </button>
-}
+	<div >me</div>
+</button>;
