@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[453],{7889:function(e,n,t){t.r(n),t.d(n,{default:function(){return c}});var u=t(184);function c(){return(0,u.jsx)("div",{className:"header__photo"})}}}]);
-//# sourceMappingURL=453.cd02edae.chunk.js.map
