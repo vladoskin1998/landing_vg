@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.5bf3f8d2.css",
+    "main.css": "./static/css/main.8996eafd.css",
     "main.js": "./static/js/main.dfa0e5d5.js",
     "static/css/868.4a37c3c5.chunk.css": "./static/css/868.4a37c3c5.chunk.css",
     "static/js/868.c5d308a7.chunk.js": "./static/js/868.c5d308a7.chunk.js",
@@ -60,7 +60,7 @@
     "static/media/festival2.png": "./static/media/festival2.d2f7aca61504bbb9667c.png",
     "static/media/elipslinear.png": "./static/media/elipslinear.0c8ad84157ec8ac00b1e.png",
     "index.html": "./index.html",
-    "main.5bf3f8d2.css.map": "./static/css/main.5bf3f8d2.css.map",
+    "main.8996eafd.css.map": "./static/css/main.8996eafd.css.map",
     "main.dfa0e5d5.js.map": "./static/js/main.dfa0e5d5.js.map",
     "868.4a37c3c5.chunk.css.map": "./static/css/868.4a37c3c5.chunk.css.map",
     "868.c5d308a7.chunk.js.map": "./static/js/868.c5d308a7.chunk.js.map",
@@ -85,7 +85,7 @@
     "878.c3d3abf9.chunk.js.map": "./static/js/878.c3d3abf9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5bf3f8d2.css",
+    "static/css/main.8996eafd.css",
     "static/js/main.dfa0e5d5.js"
   ]
 }
