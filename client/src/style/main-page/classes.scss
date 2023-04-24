@@ -1,6 +1,6 @@
 @import "./../variables.scss";
 .classes {
-    background-image: url("../../../public/images/about_bg.jpg");
+    background-color:$color_black1 ;
     color: $color_white;
     &__area {
         display: grid;
@@ -24,43 +24,43 @@
         }
         &_p1 {
             grid-area: p-1;
-            background-image: url("../../../public/images/classes1.png");
+            background-image: url("../../../public/images/classes1.jpg");
         }
         &_p2 {
             grid-area: p-2;
-            background-image: url("../../../public/images/classes2.png");
+            background-image: url("../../../public/images/classes2.jpg");
         }
         &_p3 {
             grid-area: p-3;
-            background-image: url("../../../public/images/classes3.png");
+            background-image: url("../../../public/images/classes3.jpg");
         }
         &_p4 {
             grid-area: p-4;
-            background-image: url("../../../public/images/classes4.png");
+            background-image: url("../../../public/images/classes4.jpg");
         }
         &_p5 {
             grid-area: p-5;
-            background-image: url("../../../public/images/classes5.png");
+            background-image: url("../../../public/images/classes5.jpg");
         }
         &_p6 {
             grid-area: p-6;
-            background-image: url("../../../public/images/classes6.png");
+            background-image: url("../../../public/images/classes6.jpg");
         }
         &_p7 {
             grid-area: p-7;
-            background-image: url("../../../public/images/classes7.png");
+            background-image: url("../../../public/images/classes7.jpg");
         }
         &_p8 {
             grid-area: p-8;
-            background-image: url("../../../public/images/classes8.png");
+            background-image: url("../../../public/images/classes8.jpg");
         }
         &_p9 {
             grid-area: p-9;
-            background-image: url("../../../public/images/classes9.png");
+            background-image: url("../../../public/images/classes9.jpg");
         }
         &_p10 {
             grid-area: p-10;
-            background-image: url("../../../public/images/classes10.png");
+            background-image: url("../../../public/images/classes10.jpg");
         }
     }
 }

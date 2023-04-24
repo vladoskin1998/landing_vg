@@ -1,7 +1,7 @@
 .slick_cust {
     width: 100vw;
     height: 100vh;
-    background-image: url("../../../public/images/about_bg.jpg");
+    background-color: $color_black1 ;
     position: fixed;
     &__slide {
         height: 100vh;

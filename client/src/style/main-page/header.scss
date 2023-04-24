@@ -124,13 +124,15 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     object-fit: cover;
+    background-color: $color_black1;
 }
 .header-bg1.header-helper {
-    background-image: url("../../../public/images/animation1.png");
+    background-image: url("../../../public/images/animation1.jpg");
     z-index: -2;
+    background-color: $color_black1;
 }
 .header-bg2.header-helper {
-    background-image: url("../../../public/images/animation2.png");
+    background-image: url("../../../public/images/animation2.jpg");
     opacity: 0;
     z-index: -1;
     animation: fade-in-out 10s ease-in-out infinite alternate;
