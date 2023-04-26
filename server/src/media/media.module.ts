@@ -9,13 +9,20 @@ import { v4 as uuidv4 } from 'uuid';
 import * as mime from 'mime-types';
 import { JwtAuthGuard } from '../auth/auth.guard';
 import { AuthModule } from '../auth/auth.module';
+import * as fs from 'fs';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Media.name, schema: MediaSchema }]),
     MulterModule.register({
       storage: diskStorage({
-        destination: './uploads/',
+        destination: (req, file, cb) => {
+          const uploadDir = './uploads';
+          if (!fs.existsSync(uploadDir)) {
+            fs.mkdirSync(uploadDir);
+          }
+          cb(null, uploadDir);
+        },
         filename: (req, file, cb) => {
           const uniqueSuffix = uuidv4();
           const ext = mime.extension(file.mimetype);
