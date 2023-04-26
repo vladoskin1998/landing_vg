@@ -28,7 +28,7 @@ export class MediaService {
   }
 
   async deleteFiles(arr: string[]): Promise<void> {
-    const uploadsPath = path.join(__dirname, '../../uploads'); // путь к папке uploads
+    const uploadsPath = path.join(__dirname, '../../', 'uploads'); // путь к папке uploads
 
     for (const filename of arr) {
       const filePath = path.join(uploadsPath, filename);

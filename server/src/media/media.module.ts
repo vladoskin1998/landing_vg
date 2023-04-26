@@ -10,14 +10,14 @@ import * as mime from 'mime-types';
 import { JwtAuthGuard } from '../auth/auth.guard';
 import { AuthModule } from '../auth/auth.module';
 import * as fs from 'fs';
-
+import * as path from 'path';
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Media.name, schema: MediaSchema }]),
     MulterModule.register({
       storage: diskStorage({
         destination: (req, file, cb) => {
-          const uploadDir = './uploads';
+          const uploadDir = path.join(__dirname, '../../', 'uploads'); // путь к папке uploads
           if (!fs.existsSync(uploadDir)) {
             fs.mkdirSync(uploadDir);
           }
