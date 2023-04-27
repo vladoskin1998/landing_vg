@@ -18,7 +18,7 @@ import { join } from 'path';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
-        uri: "mongodb://user:12345678@localhost:27017/vg",
+        uri: configService.get('MONGO_URI'),
         dbName: 'vg',
       }),
     }),
