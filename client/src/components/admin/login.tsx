@@ -5,8 +5,8 @@ import {AppContext} from '../../context/context';
 export const Login = () => {
 	const modalRef = useRef<HTMLDivElement>(null);
 	const [showModal, setShowModal] = useState(false);
-	const [login, setLogin] = useState(process.env.REACT_APP_LOGIN || '');
-	const [password, setPassword] = useState(process.env.REACT_APP_PASSWORD || '');
+	const [login, setLogin] = useState('');
+	const [password, setPassword] = useState('');
 	const {isAuth, setIsAuth, device} = useContext(AppContext);
 
 	useEffect(() => {

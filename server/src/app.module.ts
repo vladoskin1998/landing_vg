@@ -19,7 +19,7 @@ import { join } from 'path';
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
         uri: configService.get('MONGO_URI'),
-        dbName: 'vg',
+        dbName:'vg',
       }),
     }),
     MediaModule,
