@@ -91,7 +91,7 @@ export const Login = () => {
 				<div className='login' ref={modalRef}>
 					<div className='login_item'>
 						<h4 className='login__text'>Login  {Boolean(login) || <span className='login__text login__text-req'>Required field</span>}</h4>
-						<input type='text' className='login__input' value={login} onChange={e => handlerLogin} />
+						<input type='text' className='login__input' value={login} onChange={handlerLogin} />
 					</div>
 					<div className='login_item'>
 						<h4 className='login__text'>Password {Boolean(password) || <span className='login__text login__text-req'>Required field</span>}</h4>
