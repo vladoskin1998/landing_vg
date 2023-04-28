@@ -62,6 +62,7 @@ export const AddNew = ({ close, link }: { close: () => void; link: string }) => 
 		if (!folder) {
 			alert('Required field input folder'); return;
 		}
+
 		if (!bgFiles.length) {
 			alert('Required field Background file'); return;
 		}

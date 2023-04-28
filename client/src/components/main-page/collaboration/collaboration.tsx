@@ -9,7 +9,7 @@ const ColaborationVideo = lazy(async () => import('./colaborationVideo'));
 const Collaboration = ({scrollToBottom}: {scrollToBottom: () => void}) => (
 	<Suspense fallback={<Loader />}>
 		<div className='collaboration' id='Collaboration'>
-			<div className='collaboration__area1 about__born-image'>
+			<div className='collaboration__area1 main--image'>
 				<h4 className='title__links'>Collaboration</h4>
 				<h3 className='collaboration__area1-subtitle'>Open for</h3>
 				<div className='collaboration__area1-interesting'>

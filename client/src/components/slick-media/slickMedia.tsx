@@ -1,5 +1,5 @@
 import 'slick-carousel/slick/slick.css';
-import {useRef, useMemo, useState} from 'react';
+import {useRef, useMemo, useState, useEffect} from 'react';
 import Slider from 'react-slick';
 import {WraperSlick} from './wraperSlick';
 import {useLocation, useParams} from 'react-router-dom';
@@ -10,12 +10,12 @@ import {MediaEnumFile} from '../../types/types-main';
 import {HREF} from '../../utils/const';
 
 export const SlickMedia = () => {
-	const [currentSlide, setCurrentSlide] = useState(0);
+
 	const location = useLocation();
 	const refSlick = useRef<Slider>(null);
 	const {current, setId} = useParams();
 	const mediaTypeUrl = wraperMediaListSlick(location.pathname.split('/')[3]);
-
+	const [currentSlide, setCurrentSlide] = useState( Number(current) || 0);
 	console.log(location.pathname.split('/')[3], setId);
 
 	const {video, image} = useContext(AppContext);
@@ -23,21 +23,18 @@ export const SlickMedia = () => {
 	const arr = useMemo(() => (mediaTypeUrl.tag === MediaEnumFile.PHOTO ? image : video)
 		.find(it => setId === it?.folderId)?.src || [], [video, image]);
 
-	console.log('arr-SlickMedia--->', arr);
-
 	const settings = {
 		arrows: false,
 		initialSlide: Number(current) || 0,
 		speed: 500,
 		slidesToShow: 1,
 		slidesToScroll: 1,
-		infinite: false,
-		afterChange(current: number) {
-			setCurrentSlide(current);
+		afterChange: (current: number) => {
+		  setCurrentSlide(current);
 		},
 	};
 
-	console.log(currentSlide + 1, arr.length);
+	console.log(currentSlide);
 
 	return <WraperSlick refSlick={refSlick} stat={`${currentSlide + 1 + '/' + arr.length}`}>
 		<Slider {...settings} ref={refSlick}>
@@ -47,7 +44,7 @@ export const SlickMedia = () => {
 						? <video controls={true} className='slick_cust__slide-video'>
 							<source src={`${HREF}uploads/${item}`} type='video/mp4' />
 						</video>
-						: <div style={{backgroundImage: `url(${HREF}uploads/${item})`}} className='slick_cust__slide-photo about__born-image'></div>
+						: <div style={{backgroundImage: `url(${HREF}uploads/${item})`}} className='slick_cust__slide-photo main--image'></div>
 					}
 				</div>)
 			}

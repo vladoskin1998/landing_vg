@@ -8,7 +8,7 @@ const AboutVideo = lazy(async () => import('./about-video'));
 
 const About = () => (
 	<Suspense fallback={<Loader />}>
-		<div className='about about__born-image' id='About'>
+		<div className='about main--image' id='About'>
 			<h4 className='title__links'>About</h4>
 			<div className='about__vg'>
 				<AboutVideo />
@@ -18,13 +18,13 @@ const About = () => (
 				</div>
 			</div>
 			<div className='about__born'>
-				<div className='about__born-1 about__born-image'></div>
-				<div className='about__born-2 about__born-image'></div>
-				<div className='about__born-3 about__born-image'></div>
+				<div className='about__born-1 main--image'></div>
+				<div className='about__born-2 main--image'></div>
+				<div className='about__born-3 main--image'></div>
 				<div className='about__vg-title'>
 					<h3>Veronika Goroshkova</h3>
 				</div>
-				<div className='about__born-4 about__born-image'>
+				<div className='about__born-4 main--image'>
 					<div className='about__born-4_main'>
 						<h4>05.05.1999</h4>
 						<h4>Born in Mariupol, Ukraine</h4>
@@ -51,13 +51,13 @@ const About = () => (
 				</div>
 			</div>
 			<div className='about__expirience'>
-				<div className='about__expirience-1 about__born-image'>
+				<div className='about__expirience-1 main--image'>
 					<h4 className='title__links'>Experience</h4>
 					<HeaderList textList={textList} />
 				</div>
-				<div className='about__expirience-2 about__born-image'></div>
-				<div className='about__expirience-3 about__born-image'></div>
-				<div className='about__expirience-4 about__born-image'></div>
+				<div className='about__expirience-2 main--image'></div>
+				<div className='about__expirience-3 main--image'></div>
+				<div className='about__expirience-4 main--image'></div>
 			</div>
 		</div>
 	</Suspense>

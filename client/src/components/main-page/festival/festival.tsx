@@ -5,7 +5,7 @@ import '../../../style/main-page/festival.scss';
 const FestivalPhotoList = lazy(async () => import('./festivalPhotoList'));
 
 const Festival = () => <Suspense fallback={<Loader />}>
-	<div className='festival about__born-image' id='Festival & TV'>
+	<div className='festival main--image' id='Festival & TV'>
 		<h4 className='title__links'>Festival & TV</h4>
 		<div className='festival__area'>
 			<div className='festival__area-text'>
@@ -16,7 +16,7 @@ const Festival = () => <Suspense fallback={<Loader />}>
 				</p>
 				<p>Participant TV show “Superintuition” in Kiev, Ukraine in 2020</p>
 			</div>
-			<div className='festival__photo about__born-image'></div>
+			<div className='festival__photo main--image'></div>
 			<FestivalPhotoList />
 		</div>
 	</div>

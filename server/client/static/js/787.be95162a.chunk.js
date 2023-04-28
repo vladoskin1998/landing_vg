@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[787],{2787:function(a,o,n){n.r(o),n.d(o,{ColaborationPhoto:function(){return e}});var t=n(184),e=function(){return(0,t.jsx)("div",{className:"collaboration__area1-photo",children:new Array(6).fill(1).map((function(a,o){return(0,t.jsx)("div",{className:"collaboration__area1-photo-".concat(o+1," main--image")},"collaboration__area1-photo"+o)}))})};o.default=e}}]);
+//# sourceMappingURL=787.be95162a.chunk.js.map

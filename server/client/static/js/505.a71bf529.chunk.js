@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[505],{8505:function(t,a,e){e.r(a),e.d(a,{FestivalPhotoList:function(){return n}});var i=e(184),n=function(){return(0,i.jsx)("div",{className:"festival__area-list",children:[1,2,3,4,5,6].map((function(t){return(0,i.jsx)("div",{className:"festival__area-list_".concat(t," about__born-image")},"festival__area-list_".concat(t))}))})};a.default=n}}]);
-//# sourceMappingURL=505.a71bf529.chunk.js.map

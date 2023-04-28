@@ -40,10 +40,10 @@ export const WraperList = <T extends {src: string}>({
 							<div
 								key={'media-list-wraper' + index}
 								style={{backgroundImage: `url(${HREF}uploads/${item.src})`}}
-								className='media__item about__born-image'
+								className='media__item main--image'
 							>
 								<div className='media__item-bg' onClick={() => {
-									toSlick(id);
+									toSlick(id+(index*3));
 								}}>
 									<button className='media__item-bg_but'> {mediaTypesFoo.buttonTitle}</button>
 								</div>
