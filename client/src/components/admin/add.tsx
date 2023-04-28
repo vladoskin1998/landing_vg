@@ -92,6 +92,7 @@ export const AddNew = ({ close, link }: { close: () => void; link: string }) => 
 			setLoader(false)
 			alert('Success upload, update site');
 			close();
+			window.location.reload();
 		} catch (error: any) {
 			if (error?.response?.status === 401) {
 				setIsAuth('');

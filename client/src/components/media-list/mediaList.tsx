@@ -17,7 +17,8 @@ export const MediaList = () => {
 		.find(it => setId === it.folderId)
 		?.src.map(it => ({src: it, photoId: it})) || [], [video, image, mediaTypesFoo]);
 
-	const label = video.find(it => setId === it.folderId)?.label || '';
+		
+	const label = image.find(it => setId === it.folderId)?.label || '';
 
 	return <WraperList arr={arr} label={label} mediaTypesFoo={mediaTypesFoo} />;
 };

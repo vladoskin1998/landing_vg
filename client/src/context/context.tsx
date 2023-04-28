@@ -9,6 +9,7 @@ const AppContext = createContext<{
 	setIsAuth: (a: string) => void;
 	image: MediaDataType[];
 	video: MediaDataType[];
+
 }>({
 			device: 'pc',
 			isAuth: localStorage.getItem('token') || '',
@@ -23,6 +24,7 @@ const ContextProvider = ({children, refApp}: {children: ReactNode; refApp: RefOb
 
 	const [image, setImage] = useState<MediaDataType[]>([]);
 	const [video, setVideo] = useState<MediaDataType[]>([]);
+
 
 	useEffect(() => {
 		$api.post('media/get-folders', {tag: MediaEnumFile.VIDEO})
@@ -87,6 +89,7 @@ const ContextProvider = ({children, refApp}: {children: ReactNode; refApp: RefOb
 			setIsAuth,
 			image,
 			video,
+
 		}
 	}>
 		{children}
