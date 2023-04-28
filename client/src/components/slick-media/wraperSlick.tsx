@@ -1,12 +1,15 @@
-import {CloseSlick} from '../../svg/closeSlick';
-import {PrevSlick} from '../../svg/prevSlick';
-import {NextSlick} from '../../svg/nextSlick';
-import {useNavigate} from 'react-router-dom';
+import { CloseSlick } from '../../svg/closeSlick';
+import { PrevSlick } from '../../svg/prevSlick';
+import { NextSlick } from '../../svg/nextSlick';
+import { useNavigate } from 'react-router-dom';
 import type Slider from 'react-slick';
-import {type ReactNode} from 'react';
+import { type ReactNode } from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../../context/context';
 
-export const WraperSlick = ({refSlick, children, stat}: {stat: string;refSlick: React.RefObject<Slider>; children: ReactNode}) => {
+export const WraperSlick = ({ refSlick, children, stat }: { stat: string; refSlick: React.RefObject<Slider>; children: ReactNode }) => {
 	const navigate = useNavigate();
+	const { device } = useContext(AppContext);
 	return <div className='slick_cust'>
 		<button className='slick_cust__close' onClick={() => {
 			navigate(-1);
@@ -17,11 +20,16 @@ export const WraperSlick = ({refSlick, children, stat}: {stat: string;refSlick: 
 		{
 			children
 		}
-		<button className='slick_cust__prev' onClick={() => refSlick?.current?.slickPrev()}>
-			<PrevSlick />
-		</button>
-		<button className='slick_cust__next' onClick={() => refSlick?.current?.slickNext()}>
-			<NextSlick />
-		</button>
+		{
+			device === 'pc' ? <>
+				<button className='slick_cust__prev' onClick={() => refSlick?.current?.slickPrev()}>
+					<PrevSlick />
+				</button>
+				<button className='slick_cust__next' onClick={() => refSlick?.current?.slickNext()}>
+					<NextSlick />
+				</button>
+			</> : <></>
+		}
+
 	</div>;
 };
