@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.6353e67d.css",
+    "main.css": "./static/css/main.f88073f0.css",
     "main.js": "./static/js/main.91787f3b.js",
     "static/css/780.42cae308.chunk.css": "./static/css/780.42cae308.chunk.css",
     "static/js/780.0f0492f3.chunk.js": "./static/js/780.0f0492f3.chunk.js",
@@ -57,7 +57,7 @@
     "static/media/festival4.png": "./static/media/festival4.d375432729f3c466b103.png",
     "static/media/about2.png": "./static/media/about2.38891d56a91c6846cfde.png",
     "index.html": "./index.html",
-    "main.6353e67d.css.map": "./static/css/main.6353e67d.css.map",
+    "main.f88073f0.css.map": "./static/css/main.f88073f0.css.map",
     "main.91787f3b.js.map": "./static/js/main.91787f3b.js.map",
     "780.42cae308.chunk.css.map": "./static/css/780.42cae308.chunk.css.map",
     "780.0f0492f3.chunk.js.map": "./static/js/780.0f0492f3.chunk.js.map",
@@ -82,7 +82,7 @@
     "878.c3d3abf9.chunk.js.map": "./static/js/878.c3d3abf9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6353e67d.css",
+    "static/css/main.f88073f0.css",
     "static/js/main.91787f3b.js"
   ]
 }
