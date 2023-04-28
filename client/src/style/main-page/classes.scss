@@ -7,13 +7,12 @@
         display: grid;
         column-gap: 1px;
         row-gap: 1px;
-        grid-template-rows: repeat(4, 323px);
+        grid-template-rows: repeat(3, 323px);
         grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
         grid-template-areas:
             "t-1 t-1 t-1 t-1 t-1 t-1 p-1 p-1 p-1 p-1 p-2 p-2 p-2"
             "p-3 p-3 . p-4 p-4 p-5 p-5 p-5 p-5 p-6 p-6 p-6 p-6"
-            "p-7 p-7 . p-8 p-8 p-8 p-8 p-9 p-9 p-9 p-9  . ."
-            "p-10 p-10 . . . . . . . . . . .";
+            "p-7 p-7 . p-8 p-8 p-8 p-8 p-9 p-9 p-9 p-9  . .";
         row-gap: 1px;
         margin-top: 100px;
         .title__links{
