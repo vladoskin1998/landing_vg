@@ -12,6 +12,12 @@ export class MediaService {
   constructor(@InjectModel(Media.name) private mediaModel: Model<Media>) {}
 
   async addFolder({ title, filenames, tag, bgfiles }: FolderProp) {
+    const folder = await this.mediaModel.findOne({title})
+    console.log(folder);
+    
+    if(folder){
+      throw new HttpException("Collection alredy create, change name new collection", HttpStatus.BAD_REQUEST)
+    }
     return await this.mediaModel.create({ title, filenames, tag, bgfiles });
   }
 
