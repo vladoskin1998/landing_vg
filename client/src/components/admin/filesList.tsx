@@ -5,7 +5,7 @@ export const FilesList = ({files, handleFileDelete}: {files: File[]; handleFileD
 		handleFileDelete(i);
 	};
 
-	return <ul>
+	return <ul className='add__ul'>
 		{Array.from(files).map((file, index) => (
 			<li key={file.name}>
 				<div>

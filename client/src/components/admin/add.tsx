@@ -14,7 +14,6 @@ export const AddNew = ({ close, link }: { close: () => void; link: string }) => 
 	const { setIsAuth } = useContext(AppContext);
 	const { format, tag } = dataUpload(link);
 	const modalRef = useRef<HTMLDivElement>(null);
-	const [totalSize, setTotalSize] = useState(0);
 	const [loader, setLoader] = useState(false);
 
 	useEffect(() => {
@@ -29,7 +28,6 @@ export const AddNew = ({ close, link }: { close: () => void; link: string }) => 
 			total += files[i]?.size;
 		}
 
-		setTotalSize(total + bgFiles[0]?.size || 0);
 
 		document.addEventListener('click', handleClickOutside);
 		return () => {
@@ -70,12 +68,7 @@ export const AddNew = ({ close, link }: { close: () => void; link: string }) => 
 			alert('Required field Download file'); return;
 		}
 
-		if (totalSize > 20000000) {
-			alert('Max size Collection 20Mb'); return;
-		}
-		if (files.length > 20) {
-			alert('Max count files 20'); return;
-		}
+		
 
 		formData.append('title', folder);
 		formData.append('tag', tag);
@@ -110,11 +103,6 @@ export const AddNew = ({ close, link }: { close: () => void; link: string }) => 
 		<>
 			<div className='login add' ref={modalRef}>
 				<h4 className='login__text'>Add Collection</h4>
-				<h3 className='login__text'>Max Size 20Mb,
-					<span className='login__text login__text-req'> {totalSize / 1000000}Mb </span>
-					Max files 20,
-					<span className='login__text login__text-req'> {files.length}</span>
-				</h3>
 				<div className='login_item'>
 					<h4 className='login__text'>NAME FOLDER {Boolean(folder) || <span className='login__text login__text-req'>Required field</span>} </h4>
 					<input type='text' className='login__input' value={folder} onChange={handlerSetFolder} />
