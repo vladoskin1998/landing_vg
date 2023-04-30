@@ -2,8 +2,7 @@
 
 Проект создан с помощью фреймворков React и NestJS.
 
-## Ссылка
-https://veronikagoroshkova.website/
+[## Ссылка на сайт https://veronikagoroshkova.website/](https://veronikagoroshkova.website/){:target="_blank"}
 
 ## Описание
 
