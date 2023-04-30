@@ -1,28 +1,27 @@
-landing_vg
+# landing_vg
+
 Проект создан с помощью фреймворков React и NestJS.
 
-Описание
+## Ссылка
+https://veronikagoroshkova.website/
+
+## Описание
+
 Этот проект предназначен для привлечения клиентов и продвижения.
 
-Инициализация
+## Инициализация
+
 Для инициализации серверной и клиентской частей выполните следующие шаги:
 
-Клонируйте репозиторий:
-git clone https://github.com/vladoskin1998/landing_vg.git
+1. Клонируйте репозиторий: `git clone https://github.com/vladoskin1998/landing_vg.git`
+2. Установите зависимости для серверной части: `cd landing_vg/server npm install`
+3. Установите зависимости для клиентской части: `cd ../client npm install`
 
-Установите зависимости для серверной части:
-cd landing_vg/server npm install
+## Запуск
 
-Установите зависимости для клиентской части:
-cd ../client npm install
-
-Запуск
 Для запуска сервера и клиента выполните следующие шаги:
 
-Запустите серверную часть:
-cd landing_vg/server npm start
+1. Запустите серверную часть: `cd landing_vg/server npm start`
+2. Запустите клиентскую часть: `cd ../client npm start`
 
-Запустите клиентскую часть:
-cd ../client npm start
-
-После этого приложение будет доступен по адресу http://localhost:3000.
+После этого приложение будет доступно по адресу http://localhost:3000/.
