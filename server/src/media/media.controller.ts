@@ -30,7 +30,7 @@ export class MediaController {
       },
       {
         name: 'files',
-        maxCount: 1,
+        maxCount: 51,
       },
     ]),
   )
