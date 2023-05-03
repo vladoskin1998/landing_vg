@@ -7,7 +7,7 @@ import {HREF} from '../../utils/const';
 import {type MediaTypeListFoo} from '../../types/types-main';
 import {MediaNavTitle} from './mediaNavTitle';
 
-export const WraperList = <T extends {src: string}>({
+export const WraperList = <T extends {src: {url:string, currentNumber:number}}>({
 	arr,
 	label,
 	mediaTypesFoo,
@@ -19,6 +19,9 @@ export const WraperList = <T extends {src: string}>({
 	const {setId} = useParams();
 	const navigate = useNavigate();
 	const location = useLocation();
+
+	console.log("arrWraperList--->", arr);
+	
 
 	const {device} = useContext(AppContext);
 	const toSlick = (id: string | number) => {
@@ -39,11 +42,11 @@ export const WraperList = <T extends {src: string}>({
 						{arrItem.map((item, id) => (
 							<div
 								key={'media-list-wraper' + index}
-								style={{backgroundImage: `url(${HREF}uploads/${item.src})`}}
+								style={{backgroundImage: `url(${HREF}uploads/${item.src.url})`}}
 								className='media__item main--image'
 							>
 								<div className='media__item-bg' onClick={() => {
-									toSlick(id+(index*3));
+									toSlick(item.src.currentNumber);
 								}}>
 									<button className='media__item-bg_but'> {mediaTypesFoo.buttonTitle}</button>
 								</div>

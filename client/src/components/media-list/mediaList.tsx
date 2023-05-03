@@ -15,7 +15,7 @@ export const MediaList = () => {
 
 	const arr = useMemo(() => (mediaTypesFoo.tag === MediaEnumFile.PHOTO ? image : video)
 		.find(it => setId === it.folderId)
-		?.src.map(it => ({src: it, photoId: it})) || [], [video, image, mediaTypesFoo]);
+		?.src.map((it) => ({src: it, photoId: it})) || [], [video, image, mediaTypesFoo]);
 
 		
 	const label = image.find(it => setId === it.folderId)?.label || '';

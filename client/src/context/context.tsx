@@ -30,13 +30,25 @@ const ContextProvider = ({children, refApp}: {children: ReactNode; refApp: RefOb
 		$api.post('media/get-folders', {tag: MediaEnumFile.VIDEO})
 			.then(res => {
 				setVideo(
-					res.data.map((it: BDFoledrsList) => ({src: it?.filenames, label: it?.title, folderId: it?._id, bgfiles: it?.bgfiles})),
+					res.data.map((it: BDFoledrsList) => ({
+						src: it?.filenames.map((it,ind) => ({ url: it, currentNumber: ind })), 
+						label: it?.title, 
+						folderId: it?._id, 
+						bgfiles: 
+						it?.bgfiles
+					})),
 				);
 			});
 		$api.post('media/get-folders', {tag: MediaEnumFile.PHOTO})
 			.then(res => {
 				setImage(
-					res.data.map((it: BDFoledrsList) => ({src: it?.filenames, label: it?.title, folderId: it?._id, bgfiles: it?.bgfiles})),
+					res.data.map((it: BDFoledrsList) => ({
+						src: it?.filenames.map((it,ind) => ({ url: it, currentNumber: ind })), 
+						label: it?.title, 
+						folderId: it?._id, 
+						bgfiles: 
+						it?.bgfiles
+					})),
 				);
 			});
 			console.log("----->","gergew");
