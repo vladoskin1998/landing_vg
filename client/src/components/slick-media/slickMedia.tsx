@@ -34,17 +34,15 @@ export const SlickMedia = () => {
 		},
 	};
 
-	console.log(currentSlide);
-
 	return <WraperSlick refSlick={refSlick} stat={`${currentSlide + 1 + '/' + arr.length}`}>
 		<Slider {...settings} ref={refSlick}>
 			{
 				arr.map((item, index) => <div className='slick_cust__slide' key={index + 'slick_cust__slid'}>
 					{mediaTypeUrl.tag === MediaEnumFile.VIDEO
 						? <video controls={true} className='slick_cust__slide-video'>
-							<source src={`${HREF}uploads/${item}`} type='video/mp4' />
+							<source src={`${HREF}uploads/${item.url}`} type='video/mp4' />
 						</video>
-						: <div style={{backgroundImage: `url(${HREF}uploads/${item})`}} className='slick_cust__slide-photo main--image'></div>
+						: <div style={{backgroundImage: `url(${HREF}uploads/${item.url})`}} className='slick_cust__slide-photo main--image'></div>
 					}
 				</div>)
 			}

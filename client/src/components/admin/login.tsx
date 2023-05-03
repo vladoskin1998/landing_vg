@@ -38,7 +38,6 @@ export const Login = () => {
 			{login, password},
 		)
 			.then(m => {
-				console.log(m.data);
 				setIsAuth(m.data);
 				setShowModal(false);
 			})

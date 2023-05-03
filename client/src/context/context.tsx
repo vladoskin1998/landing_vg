@@ -51,8 +51,6 @@ const ContextProvider = ({children, refApp}: {children: ReactNode; refApp: RefOb
 					})),
 				);
 			});
-			console.log("----->","gergew");
-			
 	}, []);
 
 	useEffect(() => {
@@ -83,8 +81,6 @@ const ContextProvider = ({children, refApp}: {children: ReactNode; refApp: RefOb
 		const token: string | null = localStorage.getItem('token');
 		if (token) {
 			const decodedToken: DecodedToken = jwt_decode(token);
-			console.log('decodedToken', decodedToken);
-
 			const currentTime = Date.now() / 1000;
 			if (decodedToken.exp < currentTime) {
 				setIsAuth('');

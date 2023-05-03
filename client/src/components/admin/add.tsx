@@ -81,7 +81,7 @@ export const AddNew = ({ close, link }: { close: () => void; link: string }) => 
 			setLoader(true)
 			await $api.post('media/add-folder', formData, {
 				headers: { 'Content-Type': 'multipart/form-data' },
-			});
+			})
 			setLoader(false)
 			alert('Success upload, update site');
 			close();
@@ -91,7 +91,9 @@ export const AddNew = ({ close, link }: { close: () => void; link: string }) => 
 				setIsAuth('');
 			}
 			setLoader(false)
-			alert(error?.message);
+			console.log("error----->", error);
+			
+			alert(error?.response?.data?.message || 'Error occurred');
 		}
 	};
 

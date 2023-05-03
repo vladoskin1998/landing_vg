@@ -20,9 +20,6 @@ export const WraperList = <T extends {src: {url:string, currentNumber:number}}>(
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	console.log("arrWraperList--->", arr);
-	
-
 	const {device} = useContext(AppContext);
 	const toSlick = (id: string | number) => {
 		navigate(`/${location.pathname.split('/')[1]}/${setId}/${mediaTypesFoo.title}/${id}`);
