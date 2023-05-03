@@ -91,7 +91,7 @@ export const AddNew = ({ close, link }: { close: () => void; link: string }) => 
 				setIsAuth('');
 			}
 			setLoader(false)
-			alert(error);
+			alert(error?.message);
 		}
 	};
 

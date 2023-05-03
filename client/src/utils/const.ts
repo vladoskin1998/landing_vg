@@ -39,4 +39,4 @@ export const CLASSES_TEXT = [
 export const HREF
     = window.location.hostname === 'localhost'
     	? 'http://localhost:5001/'
-    	: window.location.href;
+    	: 'https://veronikagoroshkova.website/';

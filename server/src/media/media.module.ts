@@ -30,6 +30,9 @@ import * as path from 'path';
         },
       
       }),
+      limits: {
+        fileSize: 1000000000 
+      },
       fileFilter: (req, file, cb) => {
         if (!file.originalname.match(/\.(jpg|jpeg|png|mp4|JPG|JPEG|PNG|MP4)$/)) {
           return cb(new Error('Only image files are allowed!'), false);

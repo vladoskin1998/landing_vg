@@ -16,7 +16,7 @@ export class MediaService {
     console.log(folder);
     
     if(folder){
-      throw new HttpException("Collection alredy create, change name new collection", HttpStatus.BAD_REQUEST)
+      throw new HttpException(`Collection ${title} alredy create, change name new collection`, HttpStatus.BAD_REQUEST)
     }
     return await this.mediaModel.create({ title, filenames, tag, bgfiles });
   }
