@@ -68,7 +68,7 @@ export const AddNew = ({ close, link }: { close: () => void; link: string }) => 
 			alert('Required field Download file'); return;
 		}
 
-		
+
 
 		formData.append('title', folder);
 		formData.append('tag', tag);
@@ -104,7 +104,14 @@ export const AddNew = ({ close, link }: { close: () => void; link: string }) => 
 			<div className='login add' ref={modalRef}>
 				<h4 className='login__text'>Add Collection</h4>
 				<div className='login_item'>
-					<h4 className='login__text'>NAME FOLDER {Boolean(folder) || <span className='login__text login__text-req'>Required field</span>} </h4>
+					<h4 className='login__text'>
+						<span className='login__text login__text-req'>UNIQ</span> NAME FOLDER
+						{
+							Boolean(folder) || <span className='login__text login__text-req'>
+								Required field
+							</span>
+						}
+					</h4>
 					<input type='text' className='login__input' value={folder} onChange={handlerSetFolder} />
 				</div>
 

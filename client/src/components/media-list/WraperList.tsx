@@ -39,7 +39,7 @@ export const WraperList = <T extends {src: {url:string, currentNumber:number}}>(
 						} media__itemline`}
 						key={'media-list-wraper' + index}
 					>
-						{arrItem.map((item, id) => (
+						{arrItem.map((item) => (
 							<div
 								key={'media-list-wraper' + index}
 								style={{backgroundImage: `url(${HREF}uploads/${item.src.url})`}}
